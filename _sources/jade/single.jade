@@ -1,0 +1,6 @@
+| <?php $pieces = explode("/", $_SERVER['REQUEST_URI']); ?>
+| <?php $pieces = $pieces[1]; ?>
+| <?php if ( $pieces === 'news_ast' ) { get_template_part( 'post-single' ); }?>
+| <?php if ( $pieces === 'repertory_ast' ) {  get_template_part( 'afish-single' ); }?>
+| <?php if ( $pieces === 'truppa_ast' ) {  get_template_part( 'single-truppa' ); }?>
+| <?php if ( $pieces === 'blog_ast' ) {  get_template_part( 'post-single' ); }?>

@@ -1,0 +1,46 @@
+// mixin for media queries
+@mixin media_query($argument){
+	@if $argument == 'desktop' {
+		@media only screen and (min-width: 1200px) {
+			@content
+		}			
+	} @else if $argument == 'desktop-hidden' {
+		@media only screen and (min-width: 1200px) {
+			display: none !important;
+		}	
+	} @else if $argument == 'desktop-visible' {
+		@media only screen and (min-width: 1200px) {
+			display: block !important;
+		}	
+	}		
+
+
+	@else if $argument == 'tablet' {
+		@media only screen and (min-width: 750px) {
+			@content
+		}	
+	} @else if $argument == 'tablet-hidden' {
+		@media only screen and (min-width: 750px) {
+			display: none !important;
+		}	
+	} @else if $argument == 'tablet-visible' {
+		@media only screen and (min-width: 750px) {
+			display: block !important;
+		}	
+	}		
+
+
+	@else if $argument == 'mobile' {
+		@media only screen and (max-width: 600px) {
+			@content
+		}	
+	}@else if $argument == 'mobile-hidden' {
+		@media only screen and (max-width: 600px) {
+			display: none !important;
+		}	
+	}@else if $argument == 'mobile-visible' {
+		@media only screen and (max-width: 600px) {
+			display: block !important;	
+		}	
+	}				
+}

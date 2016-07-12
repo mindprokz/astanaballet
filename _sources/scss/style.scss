@@ -1,25 +1,3 @@
-@import 
-  'sass/_susy.scss',
-  'sections/reset.scss',
-  'sections/mail';
-$susy: (
-  columns: 12,
-  gutters: 1/2,
-  math: fluid,
-  gutter-position: outside,
-);
-
-$container: 1170px;
-$container-float: 100%;
-
-.container-float{
-  @include container($container-float);
-}
-
-.container{
-  @include container($container);
-}  
-
-.test{
-  @include span(6);	
-}
+@import 'sections/style',
+	'sections/navigation',
+	'sections/footer';

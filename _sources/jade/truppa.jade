@@ -1,0 +1,24 @@
+doctype html
+html
+	|  
+	| <?php get_header(); ?>
+	| <?php
+	| /*
+	|  Template Name: Truppa page
+	| */?>
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/truppa.css")
+	body
+		include sections/navigation.jade
+		.parallax-window(data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/truppa_head.jpg" data-speed="0.3")
+			.filter_violet
+			h3!="<?php the_title()?>"
+		.peoples.container-float
+			.container
+				| 
+				| <?php getTruppa(); ?>
+
+		include sections/footer.jade
+		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
+		script(src!="<?php echo get_template_directory_uri();?>/js/main.js")
+		

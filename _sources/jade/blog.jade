@@ -1,0 +1,55 @@
+doctype html
+html
+	|  
+	| <?php get_header(); ?>
+	| <?php
+	| /*
+	|  Template Name: blog page
+	| */?>
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/blog.css")
+	body
+		include sections/navigation.jade
+		
+		// Блок с параллаксом
+		.parallax-window(data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/blog_head.png" data-speed="0.3")
+			.filter_violet
+			h3!="<?php the_title()?>"
+		.blog.container-float
+			.wrap.container
+				| <?php 
+				|   $args = array(
+				|     'post_type' => 'blog_ast', //Тип поста
+				|     'posts_per_page' => 5,//Постов на одной странице
+				|     'category_name' => 'blog' //Категория постов
+				|   );
+				|  $lastBlog = new WP_Query($args); //Запрос ко всем постам подходящим под массив #args
+				|  if( $lastBlog->have_posts() ):
+				|    while($lastBlog->have_posts() ): $lastBlog->the_post(); ?>
+				article.blog-elem.wow(style="visibility: hidden;")
+					.wrap
+						| <?php
+						|   if (types_render_field( "thumbnail_news_or_blog", array('output' => 'raw') ) == 1): ?>
+						a(href!="<?php echo( get_permalink() ); ?>")
+							header.header__blog-elem
+								img(src!="<?php echo( types_render_field( 'thumbnail_for_thumb_news_or_blog', array('output' => 'raw') ) ); ?>")
+						| <?php 
+						|   elseif (types_render_field( "thumbnail_news_or_blog", array('output' => 'raw') ) == 2): ?>
+						a(href!="<?php echo( types_render_field( 'link_for_video_news_or_blog', array( 'output' => 'raw') ) ); ?>" class="fancybox fancybox.iframe")
+							header.header__blog-elem.video
+								img(src!="<?php echo( types_render_field( 'thumbnail_for_video_news_or_blog', array('output' => 'raw') ) ); ?>")
+						| <?php
+						|   endif;
+						|?>
+						footer.footer__blog-elem
+							a(href!="<?php echo( get_permalink() ); ?>"): h3!="<?php echo( types_render_field( 'header_news_or_blog', array() ) ); ?>"
+							.date!="Дата: <?php the_date('d-m-y'); ?>"
+							p.text!="<?php echo( types_render_field( 'short_content_news_or_blog', array() ) ); ?>"
+				|    <?php endwhile; ?>
+				|  <?php endif;?>
+		include sections/footer.jade
+		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
+		script(src!="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/fancybox/source/jquery.fancybox.pack.js")
+		script="window.blog = true; window.fancybox = true; window.wow = true;"
+		script(src!="<?php echo get_template_directory_uri();?>/js/main.js")

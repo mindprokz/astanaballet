@@ -36,7 +36,7 @@ gulp.task('server', () => {
   if (env === 'develop') {
     bs.init({
       //server : `./_compile/${env}/`,
-      proxy: 'localhost:8000'
+      proxy: 'localhost'
     }) 
   }
 
@@ -45,7 +45,9 @@ gulp.task('server', () => {
 
 // Настройки для вебпака
 let webpackOptions = {
-  entry: './_sources/js/index.js',
+  entry: {
+		a:  './_sources/js/main.js',
+  },
 
   module: {
 
@@ -53,7 +55,7 @@ let webpackOptions = {
       test: /\.js$/,
       loader: 'babel?presets[]=es2015'
     }]
-  }	
+  },	
 }
 
 // Конструктор для создания пути для исходных файлов и скомпилированных файлов
@@ -65,9 +67,9 @@ class CreatePath {
 }
 
 // Пути для всех основных файлов
-let jsPath = new CreatePath('/_sources/js/index.js');
+let jsPath = new CreatePath('/_sources/js/main.js', `/_compile/${env}/js/`);
 let libsPath = new CreatePath('/_extra/libs');
-let scssPath = new CreatePath('/_sources/scss/style.scss');
+let scssPath = new CreatePath('/_sources/scss/*.scss',`/_compile/${env}/css/`);
 let jadePath = new CreatePath('/_sources/jade/*.jade');
 let imagesPath = new CreatePath('/_sources/image/imageFromProd/**/*', `/_compile/${env}/images/`);
 
@@ -101,7 +103,8 @@ gulp.task('jade', () => {
   .pipe(rename(function (path) {
     path.extname = ".php"
   }))
-  .pipe(gulp.dest(jadePath.to));
+  .pipe(gulp.dest(jadePath.to))
+  .pipe(gulp.dest('/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme'));
 
   bs.reload();
 });
@@ -114,15 +117,20 @@ gulp.task('scss', () => {
 
   if (process.env.NODE_ENV !== 'build') {
     _files.pipe(sass().on('error', sass.logError))
-    .pipe(rename('style.css'))
-    .pipe(gulp.dest(scssPath.to));
+    .pipe(rename(function (path) {
+      path.extname = ".css"
+    }))
+    .pipe(gulp.dest(scssPath.to))
+    .pipe(gulp.dest('/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme/css'));
 
     bs.reload();
   } else {
     _files.pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer('last 5 version'))
     .pipe(minifyCss())
-    .pipe(rename('style.css'))
+    .pipe(rename(function (path) {
+      path.extname = ".css"
+    }))
     .pipe(gulp.dest(scssPath.to));
   }
 });
@@ -136,7 +144,8 @@ gulp.task('images', () => {
     svgoPlugins: [{removeViewBox: false}],
     use: [pngquant()]
   }))
-  .pipe(gulp.dest(imagesPath.to)); 
+  .pipe(gulp.dest(imagesPath.to))
+  .pipe(gulp.dest('/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme/images')); 
 });
 
 
@@ -149,8 +158,12 @@ gulp.task('js', () => {
     _files.pipe(jshint(optionForJshint))
     .pipe(jshint.reporter('default'))
     .pipe(webpackStream(webpackOptions))
-    .pipe(rename('bundle.js'))
-    .pipe(gulp.dest(jsPath.to));
+    .pipe(rename(function (path) {
+	    path.basename = "main";
+      path.extname = ".js";
+    }))
+    .pipe(gulp.dest(jsPath.to))
+    .pipe(gulp.dest('/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme/js'));
   
     bs.reload();
   } else {
@@ -158,7 +171,10 @@ gulp.task('js', () => {
     .pipe(jshint.reporter('default'))
     .pipe(webpackStream(webpackOptions))
     .pipe(uglify())
-    .pipe(rename('bundle.min.js'))
+    .pipe(rename(function (path) {
+	    path.basename = "main";
+      path.extname = ".js";
+    }))
     .pipe(gulp.dest(jsPath.to));
 
   }  
@@ -175,6 +191,11 @@ gulp.task('libsCompile', () => {
       return console.error(err);
     }
   });
+  ncp(libsPath.from, '/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme/', function (err) {
+    if (err) {
+      return console.error(err);
+    }
+  });  
 });
 
 
@@ -191,7 +212,7 @@ gulp.task('watch', () => {
   gulp.watch(__dirname + '/_sources/scss/sections/*.scss', ['scss']);
 
   // Ватчер для .js файлов
-  gulp.watch(__dirname + '/_sources/js/*.js', ['js']);
+  gulp.watch(__dirname + '/_sources/js/main.js', ['js']);
 
 });
 

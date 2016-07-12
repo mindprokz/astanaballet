@@ -1,0 +1,93 @@
+doctype html
+html
+	|  
+	| <?php get_template_part('header'); ?>
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/afish-single.css")
+	body
+		include sections/navigation.jade
+		.parallax-window(data-parallax="scroll" data-image-src!="<?php echo(types_render_field( 'horizontimage_repertory', array('raw' => true) ) ); ?>" data-speed="0.3")
+			.filter_violet
+			.container
+				h3!="<?php echo(types_render_field( 'header_repertory', array('raw' => true) ) ); ?>"
+				
+				| <?php if ( types_render_field( 'mainman_repertory', array() ) ):?>
+				h4!="<?php echo(types_render_field( 'mainman_repertory', array('raw' => true) ) ); ?>"
+				| <?php endif; ?>
+				
+				| <?php if ( types_render_field( 'painter_repertory', array() ) ):?>
+				h5!="<?php echo(types_render_field( 'painter_repertory', array('raw' => true) ) ); ?>"
+				| <?php endif; ?>
+		.container-float.content.main-wrap
+			.container
+				ul.tabs-menu
+					li.elem__tabs-menu.active(data-id="0")="Постановка"
+					li.elem__tabs-menu(data-id="1")="Фото"
+					li.elem__tabs-menu(data-id="2")="СМИ"
+					li.elem__tabs-menu(data-id="3")="Состав"
+			section.tabs-content
+						
+				article.content-elem__tabs.content.content-elem__tabs--visible
+					| <?php if ( types_render_field( 'video_repertory', array('raw' => true) ) ):?>
+					.container
+						a(href!="<?php echo(types_render_field( 'video_repertory', array('raw' => true) ) ); ?>" class="fancybox fancybox.iframe video__media").video-content
+							.wrap
+								img(src!="<?php echo(types_render_field( 'thumbnailvideo_repertory', array('raw' => true) ) ); ?>")
+					| <?php endif; ?>			
+								
+					| <?php if ( types_render_field( 'mainphoto_repertory', array() ) ):?>
+					.container
+						.photo-content
+							| <?php $arr = explode (' ', types_render_field( 'mainphoto_repertory', array('raw' => true) ) ); 
+							| foreach( $arr as $value): ?>						
+							a(href!="<?php echo($value); ?>").wrap.fancybox
+								img(src!="<?php echo($value); ?>")
+								.filter
+							| <?php endforeach; ?>
+					| <?php endif; ?>	
+					
+					| <?php if ( types_render_field( 'content_repertory', array() ) ):?>
+					.container.text-content
+						p.text-content!="<?php echo(types_render_field( 'content_repertory', array() ) ); ?>"
+					| <?php endif; ?>		
+					
+							
+				article.content-elem__tabs.content
+					.container
+						| <?php if (types_render_field( 'allphoto_repertory', array('raw' => true) ) ):?>
+						| <?php $arr = explode (' ', types_render_field( 'allphoto_repertory', array('raw' => true) ) ); 
+						| foreach( $arr as $value): ?>
+						a(href!="<?php echo( $value ); ?>").photo-section.fancybox
+							img(src!="<?php echo( $value ); ?>")
+							.filter
+						| <?php endforeach; ?>
+						| <?php endif;?>
+							
+				article.content-elem__tabs.content
+					.container
+						a(href!="<?php echo(types_render_field( 'afisha_repertory', array('raw' => true) ) ); ?>").fancybox
+							img(src!="<?php echo(types_render_field( 'afisha_repertory', array('raw' => true) ) ); ?>").smi-image
+						p.smi-text!="<?php echo(types_render_field( 'contentafish_repertory', array('raw' => true) ) ); ?>"
+						
+				article.content-elem__tabs.content
+					| <?php if ( types_render_field( 'goface_repertory', array() ) ):?>
+					h3.content-header="Действующие лица и исполнители"
+					.container.peoples
+						| <?php echo( types_render_field( 'goface_repertory', array('output' => 'raw') ) ); ?>	
+						| <?php endif;?>	
+					| <?php if ( types_render_field( 'post_slug', array() ) || types_render_field( 'post__truppa', array('output' => 'raw') ) ):?>
+					h3.content-header="Постановка"	
+					.container.peoples
+					| <?php if ( types_render_field( 'post_slug', array() ) ){
+					| 	echo( types_render_field( 'post_slug', array('output' => 'raw') ) ); 
+					| }?>
+					| <?php if ( types_render_field( 'post__truppa', array() ) ) {
+					| 	echo( types_render_field( 'post__truppa', array('output' => 'raw') ) );	
+					| }?>
+					| <?php endif;?>	
+												
+		include sections/footer.jade
+		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/fancybox/source/jquery.fancybox.pack.js")
+		script="window.afish = true; window.fancybox = true;"
+		script(src!="<?php echo get_template_directory_uri();?>/js/main.js")

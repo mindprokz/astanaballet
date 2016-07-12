@@ -1,0 +1,35 @@
+doctype html
+html
+	|  
+	| <?php get_header(); ?>
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/about.css")
+	body
+		include sections/navigation.jade
+		.parallax-window(data-parallax="scroll" data-image-src!="<?php echo( types_render_field( 'horizontal_news_or_blog', array('output' => 'raw') ) ); ?>" data-speed="0.3")
+			.filter_violet
+			h3!="<?php the_title()?>"
+		|<?php 
+		|  if (have_posts()):
+		|   while (have_posts()): the_post();?>
+		.container-float
+			.content
+				.container
+					| <?php
+					|   echo( types_render_field( 'content_news_or_blog', array() ) ); 
+					| ?> 
+					iframe(src!="https://www.facebook.com/plugins/share_button.php?href=<?php  echo('http://astanaballet.com' . $_SERVER['REQUEST_URI']); ?>&layout=button_count&size=large&mobile_iframe=true&width=126&height=28&appId" width="126" height="28" scrolling="no" frameborder="0" allowTransparency="true")
+		| <?php
+		|  if ( types_render_field( "thumbnail_news_or_blog", array('output' => 'raw') ) == 2 ):?>
+		a(href!="<?php echo( types_render_field( 'link_for_video_news_or_blog', array('output' => 'raw') ) ); ?>" class="fancybox fancybox.iframe").container-float.video
+			img(src!="<?php echo( types_render_field( 'thumbnail_for_video_news_or_blog', array('output' => 'raw') ) ); ?>")
+		| <?php endif; ?>	
+		|<?php
+		| 	endwhile;
+		|  endif;
+		|?>	
+		include sections/footer.jade
+		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/fancybox/source/jquery.fancybox.pack.js")
+		script!="window.fancybox = true;"
+		script(src!="<?php echo get_template_directory_uri();?>/js/main.js")

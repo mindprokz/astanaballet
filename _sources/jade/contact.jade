@@ -1,0 +1,40 @@
+doctype html
+html
+	|  
+	| <?php get_header(); ?>
+	| <?php
+	| /*
+	|  Template Name: contact page
+	| */?>
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/contact.css")
+	body
+		include sections/navigation.jade
+		
+		// Блок с параллаксом
+		.parallax-window(data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/contact_head.jpg" data-speed="0.3")
+			.filter_violet
+			h3!="<?php the_title()?>"
+		.container-float
+			#map.map
+			.contact-info
+				.wrap-info(itemscope itemtype="https://schema.org/Organization")
+					h3.header__wrap-info(itemprop="name")="Astana Ballet"
+					.line__wrap-info
+					p.text__wrap-info(itemprop="address")="Республика Казахстан, город Астана, ул. Кунаева, 1"
+					h4.number__wrap-info(itemprop="telephone")="+7 (7172) 709-644 +7 (7172) 709-643"
+					h5.mail__wrap-info(itemprop="email")="info@astanaballet.kz"
+		.feedback
+			h3.header__feedback="Связаться с нами"
+			form.container
+				label
+					input(type="text" placeholder="Имя")
+				label
+					input(type="text" placeholder="E-mail")
+				textarea(placeholder="Комментарий").textarea-wrap
+				button="Отправить"
+		include sections/footer.jade
+		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
+		script(src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full")
+		script="window.contact = true;"
+		script(src!="<?php echo get_template_directory_uri();?>/js/main.js")

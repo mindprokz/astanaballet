@@ -1,3 +1,59 @@
-script(src="libs/jquery/dist/jquery.min.js")
-script(src="libs/fancybox/source/jquery.fancybox.pack.js")
-script(src="common.js")
+footer
+	section.archive.container-float
+		.posts_in_blog.block
+			h3="Недавние посты в блоге "
+			ul
+				| <?php 
+				|   $args = array(
+				|     'post_type' => 'blog_ast', //Тип поста
+				|     'posts_per_page' => 3,//Постов на одной странице
+				|     'category_name' => 'blog' //Категория постов
+				|   );
+				|  $lastBlog = new WP_Query($args); //Запрос ко всем постам подходящим под массив #args
+				|  if( $lastBlog->have_posts() ):
+				|    while($lastBlog->have_posts() ): $lastBlog->the_post(); ?>
+				li
+					a(href!="<?php echo(get_permalink()); ?>")
+						h4!="<?php echo( types_render_field( 'header_news_or_blog', array() ) ); ?>"
+						h5.date!="<?php the_date('d-m-y'); ?>"
+				|    <?php endwhile; ?>
+				|  <?php endif;?>
+				|  <?php wp_reset_postdata();	 ?>
+						
+		.posts_in_blog.block
+			h3="Последние новости"
+			ul
+				| <?php 
+				|   $args = array(
+				|     'post_type' => 'news_ast', //Тип поста
+				|     'posts_per_page' => 3,//Постов на одной странице
+				|     'category_name' => 'news' //Категория постов
+				|   );
+				|  $lastBlog = new WP_Query($args); //Запрос ко всем постам подходящим под массив #args
+				|  if( $lastBlog->have_posts() ):
+				|    while($lastBlog->have_posts() ): $lastBlog->the_post(); ?>
+				li
+					a(href!="<?php echo(get_permalink()); ?>")
+						h4!="<?php echo( types_render_field( 'header_news_or_blog', array() ) ); ?>"
+						h5.date!="<?php the_date('d-m-y'); ?>"
+				|    <?php endwhile; ?>
+				|  <?php endif;?>
+				|  <?php wp_reset_postdata();	 ?>
+				
+		.about_astana_ballet.block(itemscope itemtype="https://schema.org/Organization")
+			h3(itemprop="name")="О ASTANA BALLET"
+			p!="'Astana Ballet' - это театр, умело сочетающий в своем репертуаре черты классического балета и современных танцев разных народов мира."
+			.contact
+				.number(itemprop="telephone")="+7 (7172) 709-644, +7 (7172) 709-643"
+				a(href="#" itemprop="email").mail="info@astanaballet.kz"
+	section.footer_bottom
+		.container-float
+			.ast_logo
+				.copyright!="© 2016 AstanaBallet. <br> All Rights Reserved."
+			.social_logos
+				//a(href="#").twitter
+				a(href="https://www.instagram.com/astanaballet/" target="_blank").insta
+				a(href="https://www.youtube.com/user/astanaballet" target="_blank").youtube
+				a(href="https://www.facebook.com/astanaballet/" target="_blank").facebook
+				//a(href="#").vk
+			.mind_logo

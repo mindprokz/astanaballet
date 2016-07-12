@@ -1,16 +1,36 @@
-//- Блок с мета тегами
-meta(charset="utf-8")
-meta(name="description" content="")
-meta(name="Keywords" content="")
-meta(http-equiv="X-UA-Compatible" content="IE=edge")
-meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
-
-//- Блок с линками на фавиконку
-link(rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon")
-link(rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png")
-link(rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png")
-link(rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png")
-
-//- Подключение css
-link(rel="stylesheet" href="style.css") 
-link(rel="stylesheet" href="libs/fancybox/source/jquery.fancybox.css")
+head
+	//- Блок с мета тегами
+	meta(charset="utf-8")
+	meta(name="description" content="")
+	meta(name="Keywords" content="")
+	meta(http-equiv="X-UA-Compatible" content="IE=edge")
+	meta(name="viewport" content="width=480px, maximum-scale=1")
+	meta(name="theme-color" content="#6b58cd")
+	
+	| <?php $pieces = explode("/", $_SERVER['REQUEST_URI']); ?>
+	| <?php if ( $pieces[1] === 'news_ast' || $pieces === 'blog_ast' ):?>
+		
+	meta(property="og:url" content!="<?php echo('AstanaBallet.com' . $_SERVER['REQUEST_URI']); ?>")
+	meta(property="og:type" content="website")
+	meta(property="og:title" content!="<?php the_title(); ?>")
+	|<?php 
+	|  if (have_posts()):
+	|   while (have_posts()): the_post();?>
+	meta(property="og:description" content!="AstanaBallet.com")
+	| <?
+	| 	endwhile;
+	|  endif;
+	|?>	
+	meta(property="og:image" content!="<?php echo( types_render_field( 'horizontal_news_or_blog', array('output' => 'raw') ) ); ?>")
+	| <?php endif; ?>
+	
+	//- Блок с линками на фавиконку
+	link(rel="shortcut icon" href!="<?php echo get_template_directory_uri();?>/images/favicon/favicon.ico" type="image/x-icon")
+	link(rel="apple-touch-icon" href!="<?php echo get_template_directory_uri();?>/images/favicon/apple-touch-icon.png")
+	link(rel="apple-touch-icon" sizes="72x72" href!="<?php echo get_template_directory_uri();?>/images/favicon/apple-touch-icon-72x72.png")
+	link(rel="apple-touch-icon" sizes="114x114" href!="<?php echo get_template_directory_uri();?>/images/favicon/apple-touch-icon-114x114.png")
+	
+	//- Подключение css и шрифтов
+	link(href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic&subset=latin,cyrillic" rel="stylesheet")
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/style.css")
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/libs/fancybox/source/jquery.fancybox.css")

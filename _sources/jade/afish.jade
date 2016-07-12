@@ -1,0 +1,17 @@
+doctype html
+html
+	|  
+	| <?php get_header(); ?>
+	| <?php
+	| /*
+	|  Template Name: afish page
+	| */?>
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/afish.css")
+	body
+		include sections/navigation.jade
+		| 
+		| <?php getAfishOnPage();?>
+		include sections/footer.jade
+		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
+		script(src!="<?php echo get_template_directory_uri();?>/js/main.js")

@@ -1,0 +1,47 @@
+doctype html
+html
+	|	
+	| <?php get_template_part('header'); ?>
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/single-truppa.css")
+	body
+		include sections/navigation.jade
+		.parallax-window(data-parallax="scroll" data-image-src!="<?php echo(types_render_field( 'horizont_truppa', array('raw' => true) ) ); ?>" data-speed="0.3")
+			.container
+				h3!="<?php the_title(); ?>"
+				h4!="<?php echo(types_render_field( 'status_truppa', array('raw' => true) ) ); ?>"
+		.info.container-float
+			.container
+				.media
+					| <?php if ( types_render_field( 'add_video', array('raw' => true) ) ):?>
+					a(href!="<?php echo(types_render_field( 'link_video', array('raw' => true) ) ); ?>" class="fancybox fancybox.iframe").video__media
+						.wrap
+							img(src!="<?php echo(types_render_field( 'thumbnail_video__truppa', array('raw' => true) ) ); ?>")
+							div(id="existing-iframe-example" frameborder="0" style=" position: absolute;")
+					| <?php endif;?>		
+							
+					| <?php $arr = explode (' ', types_render_field( 'photo_truppa', array('raw' => true) ) ); 
+					| foreach( $arr as $value): ?>
+					.images__media
+						a(href!="<?php echo( $value ); ?>" class="fancybox").wrap
+							img(src!="<?php echo( $value ); ?>")
+							.filter
+					| <?php endforeach; ?>
+				.text
+					.content__text!="<?php echo(types_render_field( 'content_truppa', array('raw' => true) ) ); ?>"
+					
+					| <?php if ( types_render_field( 'spectacles__truppa', array('raw' => true) ) ):?>
+					.spectacles__text
+						h3="Спектакли"
+						ul
+							| <?php echo( types_render_field( 'spectacles__truppa', array('output' => 'raw') ) ); ?>	
+							| <?php endif;?>	
+					
+		include sections/footer.jade
+		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/fancybox/source/jquery.fancybox.pack.js")
+		script="window.fancybox = true;"
+		script(src!="<?php echo get_template_directory_uri();?>/js/main.js")
+		| <?php if ( types_render_field( 'add_video', array('raw' => true) ) ):?>
+		script(src!="<?php echo get_template_directory_uri();?>/js/youtube.js")
+		| <?php endif;?>	

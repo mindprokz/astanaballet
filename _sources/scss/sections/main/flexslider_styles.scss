@@ -1,0 +1,258 @@
+
+// Slider styles
+@keyframes fade {
+	from{
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+//reset slider styles
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  { outline: none; }
+ 
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ 
+.flexslider a img { outline: none; border: none; }
+ 
+.flexslider {
+    margin: 0;
+    padding: 0;
+}
+
+#first-slider .slides > li {
+	@media screen and (min-width: 480px) {
+		height: 300px;
+	}
+	
+	@media screen and (min-width: 750px) {
+		height: 400px;
+	}
+		
+	@media screen and (min-width: 970px) {
+		height: 600px;
+	}
+	overflow: hidden;
+	position: relative;
+}
+// show slide only viewport
+.flexslider .slides > li {
+    display: none;
+    -webkit-backface-visibility: hidden;
+    position: relative;
+}
+ 
+.flexslider .slides img {
+    min-width: 100%;
+    max-width: 130%;
+    min-height: 100%;
+    position: absolute;	
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+ 
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}	
+
+//clear
+.slides:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+html[xmlns] .slides { display: block; }
+* html .slides { height: 1%; }
+
+//Slider styles
+.flexslider{
+    position: relative;
+    zoom: 1; 
+}
+
+.flex-container {
+    min-width: 480px;
+    max-width: 100%;
+    overflow: hidden;
+    .slides {
+			z-index: 1;
+		}
+		
+		.flex-direction-nav {
+			position: absolute;	
+			top: 50%;
+			left: 0;
+			width: 100%;
+			z-index: 10;	
+		}
+		
+		.flex-nav-prev, .flex-nav-next{
+			width: 70px;	
+			height: 70px;	
+			background: #fff;
+			transform: rotate(45deg);
+			position: absolute;
+			opacity: 0.5;
+			transition: opacity .3s ease;
+			
+						
+			@media screen and (min-width: 480px) {
+				display: none;
+			}
+			
+			@media screen and (min-width: 970px) {
+				display: block;
+			}
+			
+			&:hover {
+				opacity: 1;
+			}
+			&:after {
+				content: ' ';
+				width: 7px;	
+				height: 9px;	
+				transform: rotate(-45deg)
+			}	
+		}
+		
+		.flex-nav-prev:after{
+			background: url('../images/sprite.png') no-repeat 0px -5px;
+			float: right;	
+			margin-right: 17px;	
+			margin-top: 17px;	
+		}
+		
+		.flex-nav-next:after{
+			background: url('../images/sprite.png') no-repeat -16px -5px;
+			float: left;	
+			margin-left: 20px;	
+			margin-top: 43px;	
+		}
+		
+		.flex-nav-prev {
+			margin-left: -35px;	
+		}
+		
+		.flex-nav-next{
+			right: 0;	
+			margin-right: -35px;	
+		}
+		
+		.flex-direction-nav a {
+		    display: block;
+		    width: 100%;
+		    height: 100%;
+		    position: absolute;	
+		    top: 0;
+		    cursor: pointer;
+		    text-indent: -9999px;
+		}
+		
+		.flexslider .flex-control-nav {
+		    position: absolute;
+		    width: 100%;
+		    bottom: 40px;
+		    text-align: center;
+		    z-index: 10;
+		}
+		 
+		.flex-control-nav li {
+		    display: inline-block;
+		    zoom: 1;
+		}
+		 
+		.flex-control-paging li a {
+		    display: block;
+		    cursor: pointer;
+		    text-indent: -9999px;
+		    width: 10px;
+		    height: 10px;
+		    margin: 0px 5px;
+		    background: url('../images/sprite.png') no-repeat -148px -21px;
+		}
+		 
+		.flex-control-paging li a.flex-active {
+			background: url('../images/sprite.png') no-repeat -148px -6px;
+		}
+		
+		.slides .text {
+			position: absolute;	
+			top: 50%;
+			transform: translateY(-50%);
+			width: 100vw;	
+			color: #fff;
+		}
+		
+		.text .date {
+			font-size: 30px;
+			padding-bottom: 15px;	
+			
+		}
+		.text h3 {
+			font-weight: 700;
+			padding: 15px 0;
+			
+			@media screen and (min-width: 480px) {
+				font-size: 40px;
+			}
+			
+			@media screen and (min-width: 970px) {
+				font-size: 70px;				
+			}	
+		}
+		.text h4 {
+			font-size: 30px;
+			font-style: italic;
+			font-weight: 300;
+			letter-spacing: 25px;
+			text-transform: uppercase;
+			padding: 15px 0;	
+		}
+		.text .wrap {
+			margin-top: 30px;	
+			margin-left: 45px;	
+			
+		}
+		.text a {
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: 700;
+			letter-spacing: 1px;
+			padding: 10px 35px;
+			border: 2px solid #cdcbcc;
+			transition: border .3s ease;
+			&:hover {
+				border: 2px solid #6b58cd;
+			}
+		}
+		.text .left {
+			text-align: left;
+		}
+		.text .center {
+			text-align: center;
+		}
+		.text .center .wrap {
+			margin-left: 0;	
+		}
+		.text .right {
+			text-align: right;
+		}
+		.text .right .wrap {
+			margin-right: 45px;	
+		}
+}

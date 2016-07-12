@@ -1,0 +1,35 @@
+doctype html
+html(lang="ru")
+	|  
+	| <?php get_header(); ?>
+	| <?php
+	| /*
+	|  Template Name: About page
+	| */?>
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>//libs/fancybox/source/jquery.fancybox.css")
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/about.css")
+	body
+		include sections/navigation.jade
+		.parallax-window(data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/about_head.jpg" data-speed="0.3")
+			.filter_violet
+			h3!="<?php the_title()?>"
+		.container-float
+			.content
+				.container
+					|<?php 
+					| if (have_posts()) {
+					|   while (have_posts()) {
+					|     the_post();
+					|     the_content(); 
+					|   }
+					| }	
+					|?>	
+		a(href!="https://www.youtube.com/embed/yTJ9gvpCluI?autoplay=1" class="fancybox fancybox.iframe").container-float.video
+			img(src!="<?php echo get_template_directory_uri();?>/images/video_test.png")
+			video(loop preload src!="<?php echo get_template_directory_uri();?>/Aballet_load.mp4")
+		include sections/footer.jade
+		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/fancybox/source/jquery.fancybox.pack.js")
+		script!="window.fancybox = true; window.about = true;"
+		script(src!="<?php echo get_template_directory_uri();?>/js/main.js")

@@ -1,0 +1,50 @@
+@import 
+  '../susy/_susy',
+  'reset.scss',
+  'media';
+  
+$susy: (
+  columns: 12,
+  gutters: 1/2,
+  math: fluid,
+  gutter-position: inside,
+);
+
+$container-width-desktop: 1170px;
+$container-width-tablet: 750px;
+$container-width-mobile: 480px;
+$container-float-width: 100%;
+
+a{
+	text-decoration: none;
+}
+
+html {
+	min-width: 480px;
+}
+
+body{
+	min-width: 480px;
+	font-family: 'Open Sans', sans-serif;
+	background: black;
+	padding-top: 87px;	
+}
+.container-float{
+  @include container($container-float-width);
+  width: $container-float-width;	
+}
+
+.container{
+	@media only screen and (min-width: 480px) {
+  	@include container($container-float-width);
+  }	
+	@media only screen and (min-width: 1200px) {
+  	@include container($container-width-desktop);
+  }	
+  padding-left: 15px;	
+  padding-right: 15px;
+  box-sizing: border-box	
+}  
+.bold {
+	font-weight: 700;
+}

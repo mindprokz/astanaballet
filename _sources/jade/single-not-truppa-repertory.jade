@@ -1,0 +1,23 @@
+| <?php /*
+|  Template Name: Участник постановки, но не труппы
+| */?>
+| <?php $post_id = $inserted_page->ID; ?>
+| <?php
+| $mypost = get_post($post_id);
+| $args = array(
+|			'post_type' => $mypost->post_type, //Тип поста
+|			'posts_per_page' => -1,//Постов на одной странице
+|			'category_name' => 'units' //Категория постов
+|		);
+|$lastBlog = new WP_Query($args); //Запрос ко всем постам подходящим под массив #args
+|		if( $lastBlog->have_posts() ):		
+|			while($lastBlog->have_posts() ): $lastBlog->the_post();
+| 			if(get_post()->post_title === $mypost->post_title):?>
+h3.people__header-name!="<?php echo( types_render_field( 'name__truppa', array('output' => 'raw') ) ); ?>"
+h4.people__header-status!="<?php echo( types_render_field( 'status_truppa', array('output' => 'raw') ) ); ?>"
+|<?php
+|       endif;
+|			endwhile;
+|		endif;
+|		wp_reset_postdata();
+| ?>

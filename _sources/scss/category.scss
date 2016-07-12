@@ -1,0 +1,63 @@
+@import 'sections/style',
+	'sections/parallax-normal',
+	'media';
+
+
+.image {
+	
+	&:hover {
+		img {
+			transform: translate(-50%, -50%) scale(1.3);	
+		}
+		.filter {
+			opacity: 1;
+		}
+	}			
+				
+	.filter {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(107, 88, 205, 0.8);
+		opacity: 0;
+		transition: opacity .3s ease;
+		    
+		&:before {
+			content: ' ';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: url("../images/sprite.png") no-repeat -228px -2px;
+			width: 57px;
+			height: 57px;	    	    
+		}
+	}
+		
+	img {
+		position: absolute;	
+		top: 50%;
+		left: 50%;
+		min-width: 100%;
+		max-width: 120%;
+		height: auto;
+		transform: translate(-50%, -50%) scale(1);
+		transition: transform 2s ease;
+	}	
+}
+
+.video {
+	&::after {
+	  content: ' ';
+    width: 64px;
+    height: 64px;
+    background: url("../images/sprite.png") no-repeat -256px -80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } 
+}	
+	

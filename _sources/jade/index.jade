@@ -1,24 +1,37 @@
 doctype html
-| 
-| <?php $lang = lang(); ?>
-html(lang!="<?php echo $lang;?>")
-  head
-    include sections/header.jade
-  body
-    //- example form
-    //
-      div.main
-        h3="Внимание"
-        p="Оставьте ваши контактные данные и наш консультант<br/>свяжется с вами в течении 30 секунд"
-        form#application(action="mail.php" method="POST" name="application")
-          input#applicationName(name="name" maxlength="20" placeholder="Введите ваше имя" required)
-          input#applicationEmail(name="email" type="email" maxlength="20" placeholder="Ваш E-mail" required)
-          input#applicationTelephone(name="telephone" type="Tel" maxlength="20" placeholder="Ваш телефон")
-          input(type="submit")
-          div#app="Отправить"
-    div.container
-      div.test
-        | testing most words
-    div#mail.not_visible_mail
-
-    include sections/footer.jade  
+html(lang="ru")
+	|  
+	| <?php get_header(); ?>
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/main.css") 
+	body
+		include sections/navigation.jade
+		#first-slider.flex-container.container-float
+			.flexslider
+				.slides
+					| 
+					| <?php getSlider(); ?>
+		section#events
+			header.header_style.header_events
+				.container
+					a(href="/afish/").link_events
+					.text_events="Ближайшие выступления"
+			| 
+			| <?php getAfishOnMain(); ?>
+									
+		section#last_events
+			header.header_style.header__last_events
+				.container
+					a(href="/news/").link_events
+					.arrows___header__last_events
+					.text_events="Последние события"	
+			.third_slider.container-float
+				.third_slider
+					.slides
+						| 
+						| <?php getLastEvents(); ?>
+		section#history
+			header.header_style.header_events
+				.text_events="Хронология"
+			iframe(src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1vNNMPkhtRF3FBSZR814CYXGtOR8ZKlPN0GnqqN_S3f8&font=Default&lang=ru&initial_zoom=2&height=650' width='100%' height='650' frameborder='0')
+		include sections/footer.jade
+		include sections/main/script.jade  

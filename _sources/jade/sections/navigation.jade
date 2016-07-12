@@ -1,0 +1,17 @@
+header.container-float#menu
+	.logo
+		a(href="/"): img(src!="<?php echo get_template_directory_uri();?>/images/logo.png")
+	.burger
+	.lang.navElement="RU"
+		ul.nav-list
+			a(href="#"): li.elem__nav-list="KZ"
+			a(href="#"): li.elem__nav-list="ENG"
+	nav.navigation.not-active
+		a.navElement.haveSubMenu(href="/about") О театре
+		a.navElement(href="/truppa") Труппа
+		a.navElement(href="/afish") Афиша
+		a.navElement(href="/repertory") Репертуар
+		a.navElement(href="/news") Новости
+		a.navElement(href="/media") Медиа
+		a.navElement(href="/blog") Блог
+		a.navElement(href="/contact") Контакты	

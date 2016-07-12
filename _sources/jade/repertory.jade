@@ -1,0 +1,23 @@
+doctype html
+html
+	|  
+	| <?php get_header(); ?>
+	| <?php
+	| /*
+	|  Template Name: repertory page
+	| */?>
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/repertory.css")
+	body
+		include sections/navigation.jade
+		.parallax-window(data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/repertory_head.jpg" data-speed="0.3")
+			.filter_violet
+			h3!="<?php the_title()?>"
+		.repertories.container-float
+			.container
+				| 
+				| <?php getRepertory(); ?>
+				
+		include sections/footer.jade
+		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
+		script(src!="<?php echo get_template_directory_uri();?>/js/main.js")
