@@ -1,3 +1,9 @@
+<?
+$lang = [
+    "readMore" => "Толығырақ",
+];
+?>
+
 <?php // Получение разметки слайдера?>
 <?php 
 	function getSlider(){
@@ -41,7 +47,7 @@
 									if (types_render_field( "ref__slider", array('raw' => true) ) ):	
 										$ref = types_render_field( "ref__slider", array('raw' => true) )?>
 										<div class="wrap">
-											<a class="button" href="<?php echo $ref?>">Толығырақ</a>	
+											<a class="button" href="<?php echo $ref?>"><? echo $lang["readMore"] ?></a>	
 										</div>		
 							<?php endif;?>			
 						</div>	
@@ -68,7 +74,7 @@
 			<?php $date_afish = types_render_field( "date_afish", array('raw' => true) ); ?>
 			<?php $photo = types_render_field( "photo_afish", array('raw' => true) ); ?>
 			<?php $ref = types_render_field( "repertory_afish", array('raw' => true) ); ?>
-			<a href="<?php echo $ref?>" data-parallax="scroll" data-image-src="<?php echo $photo; ?>" data-speed="0.3" class="parallax-window">
+			<a href="<?php echo $ref ?>" data-parallax="scroll" data-image-src="<?php echo $photo; ?>" data-speed="0.3" class="parallax-window" target="_blank">
 				<div class="filter_violet"></div>	
 	      <div class="container">
 	        <div class="date__content"><?php echo $date_afish; ?></div>
@@ -111,7 +117,7 @@
 	            <h3><?php echo $name?></h3>
 	            <h4><span class="bold">Дата: </span><span><?php echo $date_afish2?></span></h4>
 	            <p><?php echo $content ?></p>
-	            <a href="<?php echo $ref?>" class="link___wrap__textbox_event">Толығырақ</a>
+	            <a href="<?php echo $ref?>" class="link___wrap__textbox_event"><? echo $lang["readMore"] ?></a>
 	          </div>
 	        </div>
 	      </div>	

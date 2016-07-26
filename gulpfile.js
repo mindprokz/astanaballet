@@ -28,17 +28,20 @@ const bs = require("browser-sync").create();
 const ncp = require('ncp').ncp;
 
 // Переменная окружения заданная по умолчанию
-let env = process.env.NODE_ENV === 'build' ? 'build' : 'develop';
+//NODE_ENV='{"build": "build", "lang": "ru"}' -> example for run
+
+let prc = JSON.parse(process.env.NODE_ENV);
+let env = prc.build === 'build' ? 'build' : 'develop';
 
 // Если это разработка запустить сервер 
 gulp.task('server', () => { 
   // Если переменная окружения задана, то делаем сборку под продакшн
-  if (env === 'develop') {
-    bs.init({
-      //server : `./_compile/${env}/`,
-      proxy: 'localhost'
-    }) 
-  }
+  // if (env === 'develop') {
+  //   bs.init({
+  //     server : `./_compile/${env}/`,
+  //     //proxy: 'localhost'
+  //   }) 
+  // }
 
   return;  
 });

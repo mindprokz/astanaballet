@@ -1,3 +1,19 @@
+// lang vars
+case JSON.parse(process.env.NODE_ENV).lang
+	when 'ru'
+		- var date = "Дата"
+
+	when 'eng'
+		- var date = "Date"
+
+	when 'kz'
+		- var date = "Дата"
+
+	default 
+		- var lang = null;	
+
+
+// markup
 doctype html
 html
 	|  
@@ -42,7 +58,7 @@ html
 						|?>
 						footer.footer__blog-elem
 							a(href!="<?php echo( get_permalink() ); ?>"): h3!="<?php echo( types_render_field( 'header_news_or_blog', array() ) ); ?>"
-							.date!="Дата: <?php the_date('d-m-y'); ?>"
+							.date #{date}: <?php the_date('d-m-y'); ?>
 							p.text!="<?php echo( types_render_field( 'short_content_news_or_blog', array() ) ); ?>"
 				|    <?php endwhile; ?>
 				|  <?php endif;?>

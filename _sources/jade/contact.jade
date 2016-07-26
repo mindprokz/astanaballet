@@ -1,3 +1,19 @@
+// lang vars
+case JSON.parse(process.env.NODE_ENV).lang
+	when 'ru'
+		- var lang_category_address = 'Республика Казахстан, город Астана, ул. Кунаева, 1';
+
+	when 'eng'
+		- var lang_category_address = 'Kazakhstan, Astana, 1 Kunaev street';
+
+	when 'kz'
+		- var lang_category_address = 'Республика Казахстан, город Астана, ул. Кунаева, 1';
+
+	default 
+		- var lang = null;	
+
+
+// markup
 doctype html
 html
 	|  
@@ -20,7 +36,7 @@ html
 				.wrap-info(itemscope itemtype="https://schema.org/Organization")
 					h3.header__wrap-info(itemprop="name")="Astana Ballet"
 					.line__wrap-info
-					p.text__wrap-info(itemprop="address")="Kazakhstan, Astana, 1 Kunaev street"
+					p.text__wrap-info(itemprop="address") #{lang_category_address}
 					h4.number__wrap-info(itemprop="telephone")="+7 (7172) 709-644 +7 (7172) 709-643"
 					h5.mail__wrap-info(itemprop="email")="info@astanaballet.kz"
 		.feedback

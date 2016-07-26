@@ -1,3 +1,28 @@
+// lang vars
+case JSON.parse(process.env.NODE_ENV).lang
+	when 'ru'
+		- var lang_category_filters_all = 'Показать все';
+		- var lang_category_filters_photo = 'Фото';
+		- var lang_category_filters_video = 'Видео';
+		- var lang_category_filters_albom = 'Выбрать альбом';
+
+	when 'eng'
+		- var lang_category_filters_all = 'Show all';
+		- var lang_category_filters_photo = 'Photo';
+		- var lang_category_filters_video = 'Video';
+		- var lang_category_filters_albom = 'Choose albom';
+
+	when 'kz'
+		- var lang_category_filters_all = 'Бәрін көрсету';
+		- var lang_category_filters_photo = 'Фото';
+		- var lang_category_filters_video = 'Бейне';
+		- var lang_category_filters_albom = 'Альбомды таңдау';
+
+	default 
+		- var lang = null;	
+
+
+// markup
 doctype html
 html
 	|  
@@ -9,13 +34,13 @@ html
 		.filters.container-float
 			.container
 				ul.tabs-filters
-					li.elem__tabs-filters.active="Показать все"
-					li.elem__tabs-filters="Фото"
-					li.elem__tabs-filters="Видео"
+					li.elem__tabs-filters.active #{lang_category_filters_all}
+					li.elem__tabs-filters #{lang_category_filters_photo}
+					li.elem__tabs-filters #{lang_category_filters_video}
 				.wrap-button
 					ul.button-filters
-						li.elem__button-filters.the-first-item="Выбрать альбом"
-						li.elem__button-filters: a(href!="/media/")="Показать все"
+						li.elem__button-filters.the-first-item #{lang_category_filters_albom}
+						li.elem__button-filters: a(href!="/media/") #{lang_category_filters_all}
 						|<?php
 						| 						
 						| $args = array(

@@ -1,7 +1,32 @@
+// lang vars
+case JSON.parse(process.env.NODE_ENV).lang
+	when 'ru'
+		- var lang_footer_last_posts = 'Недавние посты в блоге';
+		- var lang_footer_last_news = 'Последние новости';
+		- var lang_footer_adress_header = 'О astana ballet';
+		- var lang_footer_adress_about = '"Astana Ballet" - это театр, умело сочетающий в своем репертуаре черты классического балета и современных танцев разных народов мира.';
+
+	when 'eng'
+		- var lang_footer_last_posts = 'Recent Posts in Blog';
+		- var lang_footer_last_news = 'Latest News';
+		- var lang_footer_adress_header = 'About Astana Ballet';
+		- var lang_footer_adress_about = '"Astana Ballet" is the theatre skillfully combining in repertoire the features of classical ballet and contemporary dance of different people of the world.';
+
+	when 'kz'
+		- var lang_footer_last_posts = 'Блогтағы жуырдағы посттар';
+		- var lang_footer_last_news = 'Соңғы жаңалықтар';
+		- var lang_footer_adress_header = 'Астана Балет жайлы';
+		- var lang_footer_adress_about = '"Astana Ballet" – өз репертуарында классикалық балет нышандары мен әлемнің түрлі халықтарының заманауи билерін үйлестіріп отыратын театр.';
+
+	default 
+		- var lang = null;	
+
+
+// markup
 footer
 	section.archive.container-float
 		.posts_in_blog.block
-			h3="Блогтағы жуырдағы посттар"
+			h3 #{lang_footer_last_posts}
 			ul
 				| <?php 
 				|   $args = array(
@@ -21,7 +46,7 @@ footer
 				|  <?php wp_reset_postdata();	 ?>
 						
 		.posts_in_blog.block
-			h3="Соңғы жаңалықтар"
+			h3 #{lang_footer_last_news}
 			ul
 				| <?php 
 				|   $args = array(
@@ -41,8 +66,8 @@ footer
 				|  <?php wp_reset_postdata();	 ?>
 				
 		.about_astana_ballet.block(itemscope itemtype="https://schema.org/Organization")
-			h3(itemprop="name")="Астана Балет жайлы"
-			p!="«Astana Ballet» – өз репертуарында классикалық балет нышандары мен әлемнің түрлі халықтарының заманауи билерін үйлестіріп отыратын театр."
+			h3(itemprop="name") #{lang_footer_adress_header}
+			p #{lang_footer_adress_about}
 			.contact
 				.number(itemprop="telephone")="+7 (7172) 709-644, +7 (7172) 709-643"
 				a(href="#" itemprop="email").mail="info@astanaballet.kz"

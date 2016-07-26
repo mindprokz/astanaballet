@@ -1,3 +1,25 @@
+// lang vars
+case JSON.parse(process.env.NODE_ENV).lang
+	when 'ru'
+		- var lang_indexPage_header1 = 'Ближайшие выступления';
+		- var lang_indexPage_header2 = 'Последние события';
+		- var lang_indexPage_header3 = 'Хронология';
+
+	when 'eng'
+		- var lang_indexPage_header1 = 'Upcoming Performances';
+		- var lang_indexPage_header2 = 'Recent Developments';
+		- var lang_indexPage_header3 = 'Chronology';
+
+	when 'kz'
+		- var lang_indexPage_header1 = 'Жуырдағы көрсетілімдер';
+		- var lang_indexPage_header2 = 'Соңғы оқиғалар';
+		- var lang_indexPage_header3 = 'Хронология';
+
+	default 
+		- var lang = null;	
+
+
+// markup
 doctype html
 html(lang="ru")
 	|  
@@ -14,7 +36,7 @@ html(lang="ru")
 			header.header_style.header_events
 				.container
 					a(href="/afish/").link_events
-					.text_events="Жуырдағы көрсетілімдер"
+					.text_events #{lang_indexPage_header1}
 			| 
 			| <?php getAfishOnMain(); ?>
 									
@@ -23,7 +45,7 @@ html(lang="ru")
 				.container
 					a(href="/news/").link_events
 					.arrows___header__last_events
-					.text_events="Соңғы оқиғалар"	
+					.text_events #{lang_indexPage_header2}	
 			.third_slider.container-float
 				.third_slider
 					.slides
@@ -31,7 +53,7 @@ html(lang="ru")
 						| <?php getLastEvents(); ?>
 		section#history
 			header.header_style.header_events
-				.text_events="Хронология"
+				.text_events #{lang_indexPage_header3}
 			iframe(src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1vNNMPkhtRF3FBSZR814CYXGtOR8ZKlPN0GnqqN_S3f8&font=Default&lang=ru&initial_zoom=2&height=650' width='100%' height='650' frameborder='0')
 		include sections/footer.jade
 		include sections/main/script.jade  
