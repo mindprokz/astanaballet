@@ -20,18 +20,18 @@ html
 				.wrap-info(itemscope itemtype="https://schema.org/Organization")
 					h3.header__wrap-info(itemprop="name")="Astana Ballet"
 					.line__wrap-info
-					p.text__wrap-info(itemprop="address")="Республика Казахстан, город Астана, ул. Кунаева, 1"
+					p.text__wrap-info(itemprop="address")="Kazakhstan, Astana, 1 Kunaev street"
 					h4.number__wrap-info(itemprop="telephone")="+7 (7172) 709-644 +7 (7172) 709-643"
 					h5.mail__wrap-info(itemprop="email")="info@astanaballet.kz"
 		.feedback
-			h3.header__feedback="Связаться с нами"
+			h3.header__feedback="Write to us"
 			form.container
 				label
 					input(type="text" placeholder="Имя")
 				label
 					input(type="text" placeholder="E-mail")
-				textarea(placeholder="Комментарий").textarea-wrap
-				button="Отправить"
+				textarea(placeholder="Сообщение").textarea-wrap
+				button="Send"
 		include sections/footer.jade
 		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
 		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")

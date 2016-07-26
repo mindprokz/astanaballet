@@ -1,7 +1,7 @@
 footer
 	section.archive.container-float
 		.posts_in_blog.block
-			h3="Недавние посты в блоге "
+			h3="Блогтағы жуырдағы посттар"
 			ul
 				| <?php 
 				|   $args = array(
@@ -21,7 +21,7 @@ footer
 				|  <?php wp_reset_postdata();	 ?>
 						
 		.posts_in_blog.block
-			h3="Последние новости"
+			h3="Соңғы жаңалықтар"
 			ul
 				| <?php 
 				|   $args = array(
@@ -41,8 +41,8 @@ footer
 				|  <?php wp_reset_postdata();	 ?>
 				
 		.about_astana_ballet.block(itemscope itemtype="https://schema.org/Organization")
-			h3(itemprop="name")="О ASTANA BALLET"
-			p!="'Astana Ballet' - это театр, умело сочетающий в своем репертуаре черты классического балета и современных танцев разных народов мира."
+			h3(itemprop="name")="Астана Балет жайлы"
+			p!="«Astana Ballet» – өз репертуарында классикалық балет нышандары мен әлемнің түрлі халықтарының заманауи билерін үйлестіріп отыратын театр."
 			.contact
 				.number(itemprop="telephone")="+7 (7172) 709-644, +7 (7172) 709-643"
 				a(href="#" itemprop="email").mail="info@astanaballet.kz"

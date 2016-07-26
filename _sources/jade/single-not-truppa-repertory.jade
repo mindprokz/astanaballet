@@ -13,8 +13,9 @@
 |		if( $lastBlog->have_posts() ):		
 |			while($lastBlog->have_posts() ): $lastBlog->the_post();
 | 			if(get_post()->post_title === $mypost->post_title):?>
-h3.people__header-name!="<?php echo( types_render_field( 'name__truppa', array('output' => 'raw') ) ); ?>"
-h4.people__header-status!="<?php echo( types_render_field( 'status_truppa', array('output' => 'raw') ) ); ?>"
+.people
+	h3.people__header-name!="<?php echo( types_render_field( 'name__truppa', array('output' => 'raw') ) ); ?>"
+	h4.people__header-status!="<?php echo( types_render_field( 'status_truppa', array('output' => 'raw') ) ); ?>"
 |<?php
 |       endif;
 |			endwhile;

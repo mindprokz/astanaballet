@@ -41,7 +41,7 @@
 									if (types_render_field( "ref__slider", array('raw' => true) ) ):	
 										$ref = types_render_field( "ref__slider", array('raw' => true) )?>
 										<div class="wrap">
-											<a class="button" href="<?php echo $ref?>">Подробнее</a>	
+											<a class="button" href="<?php echo $ref?>">Толығырақ</a>	
 										</div>		
 							<?php endif;?>			
 						</div>	
@@ -111,7 +111,7 @@
 	            <h3><?php echo $name?></h3>
 	            <h4><span class="bold">Дата: </span><span><?php echo $date_afish2?></span></h4>
 	            <p><?php echo $content ?></p>
-	            <a href="<?php echo $ref?>" class="link___wrap__textbox_event">Узнать подробнее</a>
+	            <a href="<?php echo $ref?>" class="link___wrap__textbox_event">Толығырақ</a>
 	          </div>
 	        </div>
 	      </div>	

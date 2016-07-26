@@ -73,16 +73,16 @@ html
 					h3.content-header="Действующие лица и исполнители"
 					.container.peoples
 						| <?php echo( types_render_field( 'goface_repertory', array('output' => 'raw') ) ); ?>	
-						| <?php endif;?>	
+					| <?php endif;?>	
 					| <?php if ( types_render_field( 'post_slug', array() ) || types_render_field( 'post__truppa', array('output' => 'raw') ) ):?>
 					h3.content-header="Постановка"	
 					.container.peoples
-					| <?php if ( types_render_field( 'post_slug', array() ) ){
-					| 	echo( types_render_field( 'post_slug', array('output' => 'raw') ) ); 
-					| }?>
-					| <?php if ( types_render_field( 'post__truppa', array() ) ) {
-					| 	echo( types_render_field( 'post__truppa', array('output' => 'raw') ) );	
-					| }?>
+						| <?php if ( types_render_field( 'post_slug', array() ) ){
+						| 	echo( types_render_field( 'post_slug', array('output' => 'raw') ) ); 
+						| }?>
+						| <?php if ( types_render_field( 'post__truppa', array() ) ) {
+						| 	echo( types_render_field( 'post__truppa', array('output' => 'raw') ) );	
+						| }?>
 					| <?php endif;?>	
 												
 		include sections/footer.jade
