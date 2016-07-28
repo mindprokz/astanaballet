@@ -13,7 +13,9 @@ case lang_ch
 
 		- var lang_menu_active_lang = 'RU';
 		- var lang_menu_another_lang1 = 'ENG';
+		- var lang_menu_active_lang_link = "http://eng.astanaballet.com"
 		- var lang_menu_another_lang2 = 'KZ';
+		- var lang_menu_active_lang_link2 = "http://kz.astanaballet.com"
 
 	when 'eng'
 		- var lang_menu_about = 'About the Theatre';
@@ -27,7 +29,9 @@ case lang_ch
 
 		- var lang_menu_active_lang = 'ENG';
 		- var lang_menu_another_lang1 = 'RU';
+		- var lang_menu_active_lang_link = "http://astanaballet.com"
 		- var lang_menu_another_lang2 = 'KZ';
+		- var lang_menu_active_lang_link2 = "http://kz.astanaballet.com"
 
 	when 'kz'
 		- var lang_menu_about = 'Театр жайлы';
@@ -41,7 +45,9 @@ case lang_ch
 
 		- var lang_menu_active_lang = 'KZ';
 		- var lang_menu_another_lang1 = 'ENG';
+		- var lang_menu_active_lang_link = "http://eng.astanaballet.com"
 		- var lang_menu_another_lang2 = 'RU';
+		- var lang_menu_active_lang_link2 = "http://astanaballet.com"
 
 	default 
 		- var lang = null;	
@@ -54,8 +60,8 @@ header.container-float#menu
 	.burger
 	.lang.navElement #{lang_menu_active_lang}
 		ul.nav-list
-			a(href="http://eng.astanaballet.com"): li.elem__nav-list #{lang_menu_another_lang1}
-			a(href="http://astanaballet.com"): li.elem__nav-list #{lang_menu_another_lang2}
+			a(href="#{lang_menu_active_lang_link}"): li.elem__nav-list #{lang_menu_another_lang1}
+			a(href="#{lang_menu_active_lang_link2}"): li.elem__nav-list #{lang_menu_another_lang2}
 	nav.navigation.not-active
 		a.navElement.haveSubMenu(href="/about") #{lang_menu_about}
 		a.navElement(href="/truppa") #{lang_menu_truppa}

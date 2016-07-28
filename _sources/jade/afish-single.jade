@@ -104,7 +104,7 @@ html
 					| <?php endif;?>	
 					| <?php if ( types_render_field( 'post_slug', array() ) || types_render_field( 'post__truppa', array('output' => 'raw') ) ):?>
 					h3.content-header #{lang_repertore_single_production}
-					.container.peoples
+					.container.peoples.withoutTroupe
 						| <?php if ( types_render_field( 'post_slug', array() ) ){
 						| 	echo( types_render_field( 'post_slug', array('output' => 'raw') ) ); 
 						| }?>
