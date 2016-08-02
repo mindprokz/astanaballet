@@ -1,10 +1,10 @@
 .parallax-window {
-	height: 310px;	
-	position: relative;	
-}	
+	height: 450px;	
+	position: relative;
+}
 
 .filter_violet {
-	position: absolute;	
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -14,17 +14,17 @@
 }
 
 .parallax-window h3 {
-	position: absolute;	
+	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	color: #fff;
 	font-style: italic;
 	padding-left: span(1);
-	
+
 	@media screen and ( min-width: 480px) {
-		font-size: 45px;	
+		font-size: 45px;
 	}
-	
+
 	@media screen and (min-width: 750px) {
 		font-size: 60px;
 	}
