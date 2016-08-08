@@ -54,6 +54,10 @@ html(lang="ru")
 		section#history
 			header.header_style.header_events
 				.text_events #{lang_indexPage_header3}
-			iframe(src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1vNNMPkhtRF3FBSZR814CYXGtOR8ZKlPN0GnqqN_S3f8&font=Default&lang=ru&initial_zoom=2&height=650' width='100%' height='650' frameborder='0')
+			iframe(src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1vNNMPkhtRF3FBSZR814CYXGtOR8ZKlPN0GnqqN_S3f8&font=Default&lang=ru&start_at_end=true&initial_zoom=2&height=650' width='100%' height='650' frameborder='0')
 		include sections/footer.jade
 		include sections/main/script.jade  
+		script(src!="<?php echo get_template_directory_uri();?>/js/metrix.js")
+		noscript
+			div
+				img(src="https://mc.yandex.ru/watch/24668039" style="position:absolute; left:-9999px;" alt="")
