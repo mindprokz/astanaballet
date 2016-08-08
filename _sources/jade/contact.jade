@@ -2,12 +2,18 @@
 case JSON.parse(process.env.NODE_ENV).lang
 	when 'ru'
 		- var lang_category_address = 'Республика Казахстан, город Астана, ул. Кунаева, 1';
+		- var lang_contact_header = 'Напишите нам';
+		- var lang_contact_button = 'Отправить';
 
 	when 'eng'
 		- var lang_category_address = 'Kazakhstan, Astana, 1 Kunaev street';
+		- var lang_contact_header = 'Write to us';
+		- var lang_contact_button = 'Send';
 
 	when 'kz'
 		- var lang_category_address = 'Республика Казахстан, город Астана, ул. Кунаева, 1';
+		- var lang_contact_header = 'Напишите нам';
+		- var lang_contact_button = 'Отправить';
 
 	default 
 		- var lang = null;	
@@ -40,7 +46,7 @@ html
 					h4.number__wrap-info(itemprop="telephone")="+7 (7172) 709-644 +7 (7172) 709-643"
 					h5.mail__wrap-info(itemprop="email")="info@astanaballet.kz"
 		.feedback
-			h3.header__feedback="Write to us"
+			h3.header__feedback #{lang_contact_header}
 			form.container
 				label
 					input(type="text" placeholder="Имя")

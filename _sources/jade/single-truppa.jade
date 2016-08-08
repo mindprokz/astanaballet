@@ -18,6 +18,23 @@ html
 							img(src!="<?php echo(types_render_field( 'thumbnail_video__truppa', array('raw' => true) ) ); ?>")
 							div(id="existing-iframe-example" frameborder="0" style=" position: absolute;")
 					| <?php endif;?>		
+					
+					| <?php if ( types_render_field( 'vertical_thumb__truppa', array('raw' => true) )  &&  types_render_field( 'zoom_photo__truppa', array('raw' => true) ) ):?>
+					| <?php $arrMain;
+					| $arrvert = explode (' ', types_render_field( 'vertical_thumb__truppa', array('raw' => true) ) ); 
+					| $arrvert2 = explode (' ', types_render_field( 'zoom_photo__truppa', array('raw' => true) ) ); 
+					| foreach( $arrvert as $key => $value2) {
+					|   $arrMain[$key] = array( $arrvert[$key], $arrvert2[$key] );
+					| }?>
+					
+					| <?php foreach( $arrMain as $elem): ?>
+					.images__media
+						a(href!="<?php echo( $elem[1] ); ?>" class="fancybox").wrap
+							img(src!="<?php echo( $elem[0] ); ?>")
+							.filter
+					| <?php endforeach;?>
+					
+					| <?php endif;?>		
 							
 					| <?php $arr = explode (' ', types_render_field( 'photo_truppa', array('raw' => true) ) ); 
 					| foreach( $arr as $value): ?>
@@ -26,6 +43,7 @@ html
 							img(src!="<?php echo( $value ); ?>")
 							.filter
 					| <?php endforeach; ?>
+					
 				.text
 					.content__text!="<?php echo(types_render_field( 'content_truppa', array('raw' => true) ) ); ?>"
 					
