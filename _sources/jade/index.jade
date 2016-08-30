@@ -4,16 +4,22 @@ case JSON.parse(process.env.NODE_ENV).lang
 		- var lang_indexPage_header1 = 'Ближайшие выступления';
 		- var lang_indexPage_header2 = 'Последние события';
 		- var lang_indexPage_header3 = 'Хронология';
+		- var metrix_count = "https://mc.yandex.ru/watch/24668039";
+		- var metrix_url = "metrix.js";
 
 	when 'eng'
 		- var lang_indexPage_header1 = 'Upcoming Performances';
 		- var lang_indexPage_header2 = 'Recent Developments';
 		- var lang_indexPage_header3 = 'Chronology';
+		- var metrix_count = "https://mc.yandex.ru/watch/39205060";
+		- var metrix_url = "metrixeng.js";
 
 	when 'kz'
 		- var lang_indexPage_header1 = 'Жуырдағы көрсетілімдер';
 		- var lang_indexPage_header2 = 'Соңғы оқиғалар';
 		- var lang_indexPage_header3 = 'Хронология';
+		- var metrix_count = "https://mc.yandex.ru/watch/39204970";
+		- var metrix_url = "metrixkz.js";
 
 	default 
 		- var lang = null;	
@@ -57,7 +63,7 @@ html(lang="ru")
 			iframe(src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1vNNMPkhtRF3FBSZR814CYXGtOR8ZKlPN0GnqqN_S3f8&font=Default&lang=ru&start_at_end=true&initial_zoom=2&height=650' width='100%' height='650' frameborder='0')
 		include sections/footer.jade
 		include sections/main/script.jade  
-		script(src!="<?php echo get_template_directory_uri();?>/js/metrix.js")
+		script(src!="<?php echo get_template_directory_uri();?>/js/#{metrix_url}")
 		noscript
 			div
-				img(src="https://mc.yandex.ru/watch/24668039" style="position:absolute; left:-9999px;" alt="")
+				img(src="#{metrix_count}" style="position:absolute; left:-9999px;" alt="")

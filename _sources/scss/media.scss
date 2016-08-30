@@ -1,35 +1,34 @@
-
 .media-content, .filters {
 	background: #f3f4f4;
 }
 
 .filters {
 	z-index: 2;
-	position: relative;	
+	position: relative;
 }
 
 .media-content {
 	z-index: 1;
-	position: relative;	
+	position: relative;
 }
 .tabs-filters {
-	padding-top: 50px;	
+	padding-top: 50px;
 	font-size: 15px;
 	color: #3e3e3e;
   float: left;
-  margin-bottom: 30px;	
+  margin-bottom: 30px;
 	&:after {
 		content: ' ';
 		display: table;
-		clear: both;		
+		clear: both;
 	}
-	
+
 	@media screen and (min-width: 480px) {
-  	width: 280px;			
+  	width: 280px;
 	}
-	
+
 	@media screen and (min-width: 750px) {
-  	width: 360px;			
+  	width: 360px;
 	}
 }
 
@@ -37,17 +36,17 @@
 	text-transform: uppercase;
 	font-weight: 700;
 	float: left;
-	padding-bottom: 20px;		
+	padding-bottom: 20px;
 	cursor: pointer;
 	@media screen and (min-width: 480px) {
-		padding-left: 10px;	
-		padding-right: 10px;	
-	}	
+		padding-left: 10px;
+		padding-right: 10px;
+	}
 	@media screen and (min-width: 750px) {
-		padding-left: 20px;	
-		padding-right: 20px;	
-	}	
-	
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
 	&.active {
 		color: #6150bb;
 		border-bottom: 2px solid #6150bb;
@@ -55,13 +54,13 @@
 }
 .wrap-button {
 	float: right;
-	height: 40px;	
+	height: 40px;
 	margin-top: 50px;
 }
 
 .button-filters {
 	background: #6b58cd;
-	max-height: 40px;	
+	max-height: 40px;
 	overflow: hidden;
 	transition: max-height .6s ease;
 	&:hover {
@@ -74,38 +73,38 @@
 	color: #d3cfee;
 	font-weight: 300;
 	font-size: 15px;
-	padding-left: 15px;	
-	padding-top: 13px;	
-	padding-bottom: 14px;	
+	padding-left: 15px;
+	padding-top: 13px;
+	padding-bottom: 14px;
 	border-bottom: 1px solid #7c69dc;
-	cursor: pointer;	
-	position: relative;	
-	
+	cursor: pointer;
+	position: relative;
+
 	a{
 		color: #d3cfee;
-		
+
 		&:hover {
 			color: #ffffff;
 		}
 	}
-	
+
 	&:hover {
 		color: #ffffff;
 	}
-	
+
 	@media screen and (min-width: 480px) {
-		width: 150px;		
+		width: 150px;
 	}
-	
+
 	@media screen and (min-width: 750px) {
-		width: 195px;			
+		width: 195px;
 	}
 }
 
 .the-first-item {
 	color: #ffffff;
 	cursor: default;
-		
+
 	&:after {
 		content: ' ';
 		width: 9px;
@@ -113,7 +112,7 @@
 		background: url("../images/sprite.png") no-repeat -8px -14px;
 		position: absolute;
 		right: 10px;
-		top: 48%;	
+		top: 48%;
 	}
 }
 
@@ -121,45 +120,45 @@
 	height: 386px;
 	box-sizing: border-box;
   float: left;
-  
+
   @media screen and (min-width: 480px) {
 	  width: 46%;
   }
-  
+
   @media screen and (min-width: 750px) {
 	  width: 32%;
-  }   
-  
+  }
+
 }
 
 .long-thumbnail {
-	height: 193px;	
+	height: 193px;
 	box-sizing: border-box;
   float: left;
-  
+
   @media screen and (min-width: 480px) {
 	  width: 46%;
   }
   @media screen and (min-width: 750px) {
 	  width: 32%;
-  }  
+  }
 }
 
 .little-thumbnail {
-	height: 193px;		
+	height: 193px;
 	box-sizing: border-box;
 	width: 16%;
   float: left;
 }
 
 .wrap {
-	position: relative;	
+	position: relative;
 	overflow: hidden;
-	padding-left: 0;	
-	padding-right: 0;	
-	
+	padding-left: 0;
+	padding-right: 0;
+
 	img {
-		position: absolute;	
+		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -167,20 +166,20 @@
 		max-width: 130%;
 		height: auto;
 		min-height: 100%;
-	}	
+	}
 }
 
 .image {
-	
+
 	&:hover {
 		img {
-			transform: translate(-50%, -50%) scale(1.3);	
+			transform: translate(-50%, -50%) scale(1.3);
 		}
 		.filter {
 			opacity: 1;
 		}
-	}			
-				
+	}
+
 	.filter {
 		position: absolute;
 		top: 0;
@@ -190,7 +189,7 @@
 		background: rgba(107, 88, 205, 0.8);
 		opacity: 0;
 		transition: opacity .3s ease;
-		    
+
 		&:before {
 			content: ' ';
 			position: absolute;
@@ -199,12 +198,12 @@
 			transform: translate(-50%, -50%);
 			background: url("../images/sprite.png") no-repeat -164px -2px;
 			width: 57px;
-			height: 57px;	    	    
+			height: 57px;
 		}
 	}
-		
+
 	img {
-		position: absolute;	
+		position: absolute;
 		top: 50%;
 		left: 50%;
 		min-width: 100%;
@@ -212,7 +211,7 @@
 		height: auto;
 		transform: translate(-50%, -50%) scale(1);
 		transition: transform 2s ease;
-	}	
+	}
 }
 
 .video {
@@ -225,5 +224,5 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  } 
+  }
 }

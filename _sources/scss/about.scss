@@ -4,78 +4,78 @@
 .content {
 	background: #f6f7fa;
 	font-size: 15px;
-	color: #515151;
-	padding-top: 50px;	
+	color: #000000;
+	padding-top: 50px;
 	font-weight: 300;
 	line-height: 28px;
-	padding-bottom: 45px;		
+	padding-bottom: 45px;
 }
 
 .content img {
 	@media screen and (min-width: 480px) {
 		@include span(12);
 	}
-	
+
 	@media screen and (min-width: 750px) {
 		@include span(4);
 	}
 	height: auto;
-	margin-bottom: 50px;	
+	margin-bottom: 50px;
 }
 
 .content img:first-child, .content img:nth-child(2) {
 	@media screen and (min-width: 480px) {
 		@include span(12);
 	}
-	
+
 	@media screen and (min-width: 750px) {
 		@include span(6);
 	}
 	height: auto;
-	margin-top: 50px;	
+	margin-top: 50px;
 }
 .content p {
 	@include container(1170px);
 }
 .video {
-	position: relative;	
+	position: relative;
 	height: 360px;
 	cursor: pointer;
 	display: block;
 	overflow: hidden;
-		
+
 	video {
-		position: absolute;	
+		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		min-width: 100%;
 		height: auto;
-		
+
 		@media screen and (min-width: 480px) {
-			display: none;	
+			display: none;
 		}
-		
+
 		@media screen and (min-width: 970px) {
 			display: block;
 		}
 	}
-	
+
 	img {
-		position: absolute;	
+		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		min-width: 100%;
 		height: auto;
 	}
-	
+
 	&:after {
 		content: ' ';
-		width: 64px;	
-		height: 64px;	
+		width: 64px;
+		height: 64px;
 		background: url('../images/sprite.png') no-repeat -256px -80px;
-		position: absolute;	
+		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
