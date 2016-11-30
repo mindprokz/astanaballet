@@ -1,0 +1,18 @@
+section.bilet {
+  position: fixed;
+  bottom: 10%;
+  left: 3%;
+  width: 65px;
+  height: 65px;
+  padding: 30px;
+  border-radius: 50%;
+  font-size: 15px;
+  background: #7b66e8;
+  color: #fff;
+  text-align: center;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #6b58cd;
+  }
+}

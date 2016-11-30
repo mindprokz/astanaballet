@@ -20,12 +20,12 @@ case lang_ch
 	when 'eng'
 		- var lang_menu_about = 'About the Theatre';
 		- var lang_menu_truppa = 'Troupe';
-		- var lang_menu_afish = 'Posters';
+		- var lang_menu_afish = 'Poster';
 		- var lang_menu_repertory = 'Repertoire';
 		- var lang_menu_news = 'News';
 		- var lang_menu_media = 'Gallery';
 		- var lang_menu_blog = 'Blog';
-		- var lang_menu_contact = 'Contact Us';
+		- var lang_menu_contact = 'Contacts';
 
 		- var lang_menu_active_lang = 'ENG';
 		- var lang_menu_another_lang1 = 'RU';
@@ -60,8 +60,8 @@ header.container-float#menu
 	.burger
 	.lang.navElement #{lang_menu_active_lang}
 		ul.nav-list
-			a(href="#{lang_menu_active_lang_link}"): li.elem__nav-list #{lang_menu_another_lang1}
-			a(href="#{lang_menu_active_lang_link2}"): li.elem__nav-list #{lang_menu_another_lang2}
+			a(href=`${lang_menu_active_lang_link}`): li.elem__nav-list #{lang_menu_another_lang1}
+			a(href=`${lang_menu_active_lang_link2}`): li.elem__nav-list #{lang_menu_another_lang2}
 	nav.navigation.not-active
 		// .haveSubMenu
 		a.navElement(href="/about") #{lang_menu_about}

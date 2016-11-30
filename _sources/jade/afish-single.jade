@@ -1,21 +1,21 @@
 // lang vars
 case JSON.parse(process.env.NODE_ENV).lang
 	when 'ru'
-		- var lang_repertore_single_production = 'Постановка';
+		- var lang_repertore_single_production = 'Содержание';
 		- var lang_repertore_single_photo = 'Фото';
 		- var lang_repertore_single_massMedia = 'СМИ';
 		- var lang_repertore_single_troup = 'Состав';
 		- var lang_repertore_single_actionFace = 'Действующие лица и исполнители';
 
 	when 'eng'
-		- var lang_repertore_single_production = 'Direction';
+		- var lang_repertore_single_production = 'Synopsis';
 		- var lang_repertore_single_photo = 'Photo';
 		- var lang_repertore_single_massMedia = ' Mass media';
 		- var lang_repertore_single_troup = 'Troupe';
 		- var lang_repertore_single_actionFace = 'Troupe';
 
 	when 'kz'
-		- var lang_repertore_single_production = 'Қойылым';
+		- var lang_repertore_single_production = 'Мазмұн';
 		- var lang_repertore_single_photo = 'Фото';
 		- var lang_repertore_single_massMedia = 'БАҚ';
 		- var lang_repertore_single_troup = 'Құрам';
@@ -77,8 +77,7 @@ html
 					.container.text-content
 						p.text-content!="<?php echo(types_render_field( 'content_repertory', array() ) ); ?>"
 					| <?php endif; ?>		
-					
-							
+											
 				article.content-elem__tabs.content
 					.container
 						| <?php if (types_render_field( 'allphoto_repertory', array('raw' => true) ) ):?>
@@ -94,24 +93,25 @@ html
 					.container
 						a(href!="<?php echo(types_render_field( 'afisha_repertory', array('raw' => true) ) ); ?>").fancybox
 							img(src!="<?php echo(types_render_field( 'afisha_repertory', array('raw' => true) ) ); ?>").smi-image
-						p.smi-text!="<?php echo(types_render_field( 'contentafish_repertory', array('raw' => true) ) ); ?>"
+						p.smi-text!="<?php echo(types_render_field( 'contentafish_repertory_new', array('raw' => false) ) ); ?>"
 						
-				article.content-elem__tabs.content
-					| <?php if ( types_render_field( 'goface_repertory', array() ) ):?>
-					h3.content-header #{lang_repertore_single_actionFace}
-					.container.peoples
-						| <?php echo( types_render_field( 'goface_repertory', array('output' => 'raw') ) ); ?>	
-					| <?php endif;?>	
-					| <?php if ( types_render_field( 'post_slug', array() ) || types_render_field( 'post__truppa', array('output' => 'raw') ) ):?>
-					h3.content-header #{lang_repertore_single_production}
-					.container.peoples.withoutTroupe
-						| <?php if ( types_render_field( 'post_slug', array() ) ){
-						| 	echo( types_render_field( 'post_slug', array('output' => 'raw') ) ); 
-						| }?>
-						| <?php if ( types_render_field( 'post__truppa', array() ) ) {
-						| 	echo( types_render_field( 'post__truppa', array('output' => 'raw') ) );	
-						| }?>
-					| <?php endif;?>	
+				article.content-elem__tabs.content.list_truppa
+					| <?php echo types_render_field( 'peoples_afish', array() ); ?>
+					//- | <?php if ( types_render_field( 'goface_repertory', array() ) ):?>
+					//- h3.content-header #{lang_repertore_single_actionFace}
+					//- .container.peoples
+					//- 	| <?php echo( types_render_field( 'goface_repertory', array('output' => 'raw') ) ); ?>	
+					//- | <?php endif;?>	
+					//- | <?php if ( types_render_field( 'post_slug', array() ) || types_render_field( 'post__truppa', array('output' => 'raw') ) ):?>
+					//- h3.content-header #{lang_repertore_single_production}
+					//- .container.peoples.withoutTroupe
+					//- 	| <?php if ( types_render_field( 'post_slug', array() ) ){
+					//- 	| 	echo( types_render_field( 'post_slug', array('output' => 'raw') ) ); 
+					//- 	| }?>
+					//- 	| <?php if ( types_render_field( 'post__truppa', array() ) ) {
+					//- 	| 	echo( types_render_field( 'post__truppa', array('output' => 'raw') ) );	
+					//- 	| }?>
+					//- | <?php endif;?>	
 												
 		include sections/footer.jade
 		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")

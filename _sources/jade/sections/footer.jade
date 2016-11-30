@@ -3,8 +3,8 @@ case JSON.parse(process.env.NODE_ENV).lang
 	when 'ru'
 		- var lang_footer_last_posts = 'Недавние посты в блоге';
 		- var lang_footer_last_news = 'Последние новости';
-		- var lang_footer_adress_header = 'О astana ballet';
-		- var lang_footer_adress_about = '"Astana Ballet" - это театр, умело сочетающий в своем репертуаре черты классического балета и современных танцев разных народов мира.';
+		- var lang_footer_adress_header = 'Об Астана Балет';
+		- var lang_footer_adress_about = '"Астана Балет" - это театр, умело сочетающий в своем репертуаре черты классического балета и современных танцев разных народов мира.';
 		- var mind_logo = "mind_logo_ru"
 
 	when 'eng'
@@ -18,7 +18,7 @@ case JSON.parse(process.env.NODE_ENV).lang
 		- var lang_footer_last_posts = 'Блогтағы жуырдағы посттар';
 		- var lang_footer_last_news = 'Соңғы жаңалықтар';
 		- var lang_footer_adress_header = 'Астана Балет жайлы';
-		- var lang_footer_adress_about = '"Astana Ballet" – өз репертуарында классикалық балет нышандары мен әлемнің түрлі халықтарының заманауи билерін үйлестіріп отыратын театр.';
+		- var lang_footer_adress_about = '"Астана Балет" – өз репертуарында классикалық балет нышандары мен әлемнің түрлі халықтарының заманауи билерін үйлестіріп отыратын театр.';
 		- var mind_logo = "mind_logo_ru"
 
 	default 
@@ -84,7 +84,7 @@ footer
 				a(href="https://www.instagram.com/astanaballet/" target="_blank").insta
 				a(href="https://www.youtube.com/user/astanaballet" target="_blank").youtube
 				a(href="https://www.facebook.com/astanaballet/" target="_blank").facebook
-				//a(href="#").vk
+				a(href="https://vk.com/astanaballet" target="_blank").vk
 			a(href="http://mindpro-group.com" target="_blank")
 				div( class="#{mind_logo}")
 					

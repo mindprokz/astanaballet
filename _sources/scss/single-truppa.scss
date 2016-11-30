@@ -163,9 +163,21 @@
 		color: #515151;
 		font-size: 15px;
 		line-height: 24px;
+		text-align: justify;
+		padding: 40px 10px;
+		float: left;
+
+		h3 {
+			font-size: 30px;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+
+		b, strong {
+			font-weight: 700;
+		}
 	}
 	.spectacles__text {
-		margin-top: 80px;
 		h3 {
 			font-size: 30px;
 			color: #404040;

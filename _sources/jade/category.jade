@@ -29,18 +29,16 @@ html
 	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/category.css")
 	body
 		include sections/navigation.jade
-		.parallax-window(data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/truppa_head.png" data-speed="0.3")
-			.filter_violet
-			h3!="<?php single_cat_title(); ?>"
 		.filters.container-float
 			.container
+				h3.header_media!="<?php single_cat_title(); ?>"
 				ul.tabs-filters
 					li.elem__tabs-filters.active #{lang_category_filters_all}
 					li.elem__tabs-filters #{lang_category_filters_photo}
 					li.elem__tabs-filters #{lang_category_filters_video}
 				.wrap-button
 					ul.button-filters
-						li.elem__button-filters.the-first-item!="<?php single_cat_title(); ?>"
+						li.elem__button-filters.the-first-item!="<?php echo substr(single_cat_title('', false), 0, 30) . '...'; ?>"
 						li.elem__button-filters: a(href!="/media/") #{lang_category_filters_all}
 						|<?php
 						| 						

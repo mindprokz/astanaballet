@@ -5,7 +5,7 @@ const gulp = require('gulp');
 const rename = require('gulp-rename');
 
 // все что относиться к html
-const pug = require('gulp-jade');
+const pug = require('gulp-pug2');
 
 // все что относиться к css
 const minifyCss = require('gulp-minify-css');
@@ -33,17 +33,17 @@ const ncp = require('ncp').ncp;
 let prc = JSON.parse(process.env.NODE_ENV);
 let env = prc.build === 'build' ? 'build' : 'develop';
 
-// Если это разработка запустить сервер 
-gulp.task('server', () => { 
+// Если это разработка запустить сервер
+gulp.task('server', () => {
   // Если переменная окружения задана, то делаем сборку под продакшн
   // if (env === 'develop') {
   //   bs.init({
   //     server : `./_compile/${env}/`,
   //     //proxy: 'localhost'
-  //   }) 
+  //   })
   // }
 
-  return;  
+  return;
 });
 
 // Настройки для вебпака
@@ -58,7 +58,7 @@ let webpackOptions = {
       test: /\.js$/,
       loader: 'babel?presets[]=es2015'
     }]
-  },	
+  },
 }
 
 // Конструктор для создания пути для исходных файлов и скомпилированных файлов
@@ -76,11 +76,11 @@ let scssPath = new CreatePath('/_sources/scss/*.scss',`/_compile/${env}/css/`);
 let jadePath = new CreatePath('/_sources/jade/*.jade');
 let imagesPath = new CreatePath('/_sources/image/imageFromProd/**/*', `/_compile/${env}/images/`);
 
-// опции для синтаксиса js 
+// опции для синтаксиса js
 let optionForJshint = {
-  // these directives can 
-  // be found in the official 
-  // JSLint documentation. 
+  // these directives can
+  // be found in the official
+  // JSLint documentation.
   evil: true,
   curly : true,
   eqeqeq : true,
@@ -88,13 +88,13 @@ let optionForJshint = {
   plusplus : false,
   browser : true,
   esnext: true,
-  // you can also set global 
-  // declarations for all source 
-  // files like so: 
+  // you can also set global
+  // declarations for all source
+  // files like so:
   predef: ['$'],
-  // both ways will achieve the 
-  // same result; predef will be 
-  // given priority because it is 
+  // both ways will achieve the
+  // same result; predef will be
+  // given priority because it is
   // promoted by JSLint
 }
 
@@ -148,16 +148,16 @@ gulp.task('images', () => {
     use: [pngquant()]
   }))
   .pipe(gulp.dest(imagesPath.to))
-  .pipe(gulp.dest('/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme/images')); 
+  .pipe(gulp.dest('/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme/images'));
 });
 
 
 
-// task for JS 
+// task for JS
 gulp.task('js', () => {
   let _files = gulp.src(jsPath.from);
 
-  if (process.env.NODE_ENV !== 'build') { 
+  if (process.env.NODE_ENV !== 'build') {
     _files.pipe(jshint(optionForJshint))
     .pipe(jshint.reporter('default'))
     .pipe(webpackStream(webpackOptions))
@@ -167,7 +167,7 @@ gulp.task('js', () => {
     }))
     .pipe(gulp.dest(jsPath.to))
     .pipe(gulp.dest('/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme/js'));
-  
+
     bs.reload();
   } else {
     _files.pipe(jshint(optionForJshint))
@@ -180,13 +180,13 @@ gulp.task('js', () => {
     }))
     .pipe(gulp.dest(jsPath.to));
 
-  }  
+  }
 });
 
 
 
 
-// @TODO оставлять только нужные файлы через плагин bower 
+// @TODO оставлять только нужные файлы через плагин bower
 // Таск для переноса библиотек в готовую сборку
 gulp.task('libsCompile', () => {
   ncp(libsPath.from, libsPath.to, function (err) {
@@ -198,7 +198,7 @@ gulp.task('libsCompile', () => {
     if (err) {
       return console.error(err);
     }
-  });  
+  });
 });
 
 
@@ -224,4 +224,4 @@ if (env === 'develop') {
   gulp.task('default', ['jade', 'scss', 'js', 'server', 'watch' ]);
 } else {
   gulp.task('default', ['jade', 'scss', 'js', 'images', 'libsCompile']);
-} 
+}

@@ -10,7 +10,7 @@ case JSON.parse(process.env.NODE_ENV).lang
 		- var lang_category_filters_all = 'Show all';
 		- var lang_category_filters_photo = 'Photo';
 		- var lang_category_filters_video = 'Video';
-		- var lang_category_filters_albom = 'Choose albom';
+		- var lang_category_filters_albom = 'Choose album';
 
 	when 'kz'
 		- var lang_category_filters_all = 'Бәрін көрсету';
@@ -27,6 +27,10 @@ doctype html
 html
 	|  
 	| <?php get_header(); ?>
+	| <?php
+	| /*
+	|  Template Name: media page
+	| */?>
 	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/media.css")
 	body
 		include sections/navigation.jade

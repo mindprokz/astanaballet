@@ -1,3 +1,15 @@
+// lang variables 
+case JSON.parse(process.env.NODE_ENV).lang
+	when 'ru'
+		- var lang_spec_head = 'Спектакли';
+
+	when 'eng'
+		- var lang_spec_head = 'Spectacles';
+
+	when 'kz'
+		- var lang_spec_head = 'Қойылымдар';
+
+
 doctype html
 html
 	|	
@@ -19,6 +31,7 @@ html
 							div(id="existing-iframe-example" frameborder="0" style=" position: absolute;")
 					| <?php endif;?>		
 					
+					.content__text!="<?php echo(types_render_field( 'content_truppa_new', array('raw' => false) ) ); ?>"
 					| <?php if ( types_render_field( 'vertical_thumb__truppa', array('raw' => true) )  &&  types_render_field( 'zoom_photo__truppa', array('raw' => true) ) ):?>
 					| <?php $arrMain;
 					| $arrvert = explode (' ', types_render_field( 'vertical_thumb__truppa', array('raw' => true) ) ); 
@@ -45,11 +58,9 @@ html
 					| <?php endforeach; ?>
 					
 				.text
-					.content__text!="<?php echo(types_render_field( 'content_truppa', array('raw' => true) ) ); ?>"
-					
 					| <?php if ( types_render_field( 'spectacles__truppa', array('raw' => true) ) ):?>
 					.spectacles__text
-						h3="Спектакли"
+						h3 #{lang_spec_head}
 						ul
 							| <?php echo( types_render_field( 'spectacles__truppa', array('output' => 'raw') ) ); ?>	
 							| <?php endif;?>	
