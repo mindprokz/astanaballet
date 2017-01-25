@@ -1,0 +1,139 @@
+case JSON.parse(process.env.NODE_ENV).lang
+  when 'ru'
+    - var firstGroupe = 'Ведущие солисты'
+    - var secondGroupe = 'Cолисты'
+    - var thirdGroupe = 'Артисты'
+  when 'eng'
+    - var firstGroupe = 'Leading soloist'
+    - var secondGroupe = 'Soloist'
+    - var thirdGroupe = 'Dancers'
+  when 'kz'
+    - var firstGroupe = 'Жетекші солистер'
+    - var secondGroupe = 'Солистер'
+    - var thirdGroupe = 'Әртістер'
+
+| <?php
+| /*
+|  Template Name: Artist truppa page
+| */?>
+
+| <?php
+| $argsF = array(
+|   'post_type' => 'truppa_ast', //Тип поста
+|   'posts_per_page' => -1,//Постов на одной странице
+|   'category_name' => 'main_soloists' //Категория постов
+| );
+| ?>
+
+| <?php
+| $argsS = array(
+|   'post_type' => 'truppa_ast', //Тип поста
+|   'posts_per_page' => -1,//Постов на одной странице
+|   'category_name' => 'soloists' //Категория постов
+| );
+| ?>
+
+| <?php
+| $argsT = array(
+|   'post_type' => 'truppa_ast', //Тип поста
+|   'posts_per_page' => -1,//Постов на одной странице
+|   'category_name' => 'dancers' //Категория постов
+| );
+| ?>
+
+doctype html
+html
+  | <?php get_header(); ?>
+  link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/truppa.css")
+  body
+    include sections/navigation.pug
+    .parallax-window(data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/artists.jpg" data-speed="0.3")
+      .filter_violet
+      h3!="<?php the_title()?>"
+
+    // FIRST TROUPE GROUP
+    .peoples.container-float
+      .container
+        h2.head_group=firstGroupe
+        | <?php
+        | $lastBlog = new WP_Query($argsF);
+        | if( $lastBlog->have_posts() ):
+        |   while($lastBlog->have_posts() ): $lastBlog->the_post(); ?>
+        |     <?php $name_truppa = types_render_field( "name__truppa", array('raw' => true) ); ?>
+        |     <?php $status_truppa = types_render_field( "status_truppa", array('raw' => true) ); ?>
+        |     <?php $photo_truppa = types_render_field( "phototruppa_truppa", array('raw' => true) ); ?>
+        <div class="people">
+          <a href="<?php echo get_permalink(); ?>" class="people__wrap">
+            <img src="<?php echo $photo_truppa?>">
+            <div class="filter"></div>
+          </a>
+          <a href="<?php echo get_permalink(); ?>">
+            <h3 class="people__header-name"><?php echo $name_truppa?></h3>
+          </a>
+          <h4 class="people__header-status"><?php echo $status_truppa?></h4>
+        </div>
+        | <?php
+        |	  endwhile;
+        |	endif;
+        |	wp_reset_postdata();
+        |?>
+
+    // SECOND TROUPE GROUP
+    .peoples.container-float
+      .container
+        h2.head_group=secondGroupe
+        | <?php
+        | $lastBlog = new WP_Query($argsS);
+        | if( $lastBlog->have_posts() ):
+        |   while($lastBlog->have_posts() ): $lastBlog->the_post(); ?>
+        |     <?php $name_truppa = types_render_field( "name__truppa", array('raw' => true) ); ?>
+        |     <?php $status_truppa = types_render_field( "status_truppa", array('raw' => true) ); ?>
+        |     <?php $photo_truppa = types_render_field( "phototruppa_truppa", array('raw' => true) ); ?>
+        <div class="people">
+          <a href="<?php echo get_permalink(); ?>" class="people__wrap">
+            <img src="<?php echo $photo_truppa?>">
+            <div class="filter"></div>
+          </a>
+          <a href="<?php echo get_permalink(); ?>">
+            <h3 class="people__header-name"><?php echo $name_truppa?></h3>
+          </a>
+          <h4 class="people__header-status"><?php echo $status_truppa?></h4>
+        </div>
+        | <?php
+        |	  endwhile;
+        |	endif;
+        |	wp_reset_postdata();
+        |?>
+
+    // THIRD TROUPE GROUP
+    .peoples.container-float
+      .container
+        h2.head_group=thirdGroupe
+        | <?php
+        | $lastBlog = new WP_Query($argsT);
+        | if( $lastBlog->have_posts() ):
+        |   while($lastBlog->have_posts() ): $lastBlog->the_post(); ?>
+        |     <?php $name_truppa = types_render_field( "name__truppa", array('raw' => true) ); ?>
+        |     <?php $status_truppa = types_render_field( "status_truppa", array('raw' => true) ); ?>
+        |     <?php $photo_truppa = types_render_field( "phototruppa_truppa", array('raw' => true) ); ?>
+        <div class="people">
+          <a href="<?php echo get_permalink(); ?>" class="people__wrap">
+            <img src="<?php echo $photo_truppa?>">
+            <div class="filter"></div>
+          </a>
+          <a href="<?php echo get_permalink(); ?>">
+            <h3 class="people__header-name"><?php echo $name_truppa?></h3>
+          </a>
+          <h4 class="people__header-status"><?php echo $status_truppa?></h4>
+        </div>
+        | <?php
+        |	  endwhile;
+        |	endif;
+        |	wp_reset_postdata();
+        |?>
+
+
+    include sections/footer.pug
+    script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
+    script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
+    script(src!="<?php echo get_template_directory_uri();?>/js/main.js")

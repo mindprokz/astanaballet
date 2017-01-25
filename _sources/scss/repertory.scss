@@ -3,39 +3,39 @@
 
 
 .repertories {
-	padding-top: 5px;	
-	padding-bottom: 50px;	
+	padding-top: 5px;
+	padding-bottom: 50px;
 	background: #f3f4f4;
 }
 
 .repertory {
-	margin-top: 50px;	
-	@media screen and (min-width: 480px) {
-		@include span(12);	
+	margin-top: 50px;
+	@media screen and (min-width: 200px) {
+		@include span(12);
 	}
 	@media screen and (min-width: 680px) {
-		@include span(6);	
+		@include span(6);
 	}
 	@media screen and (min-width: 1200px) {
-		@include span(4);	
+		@include span(4);
 	}
 }
 
 .repertory__wrap {
-	position: relative;	
+	position: relative;
 	overflow: hidden;
 	height: 235px;
 	display: block;
-	
+
 	&:hover {
 		img {
-			transform: translate(-50%, -50%) scale(1.3);	
+			transform: translate(-50%, -50%) scale(1.3);
 		}
 		.filter {
 			opacity: 1;
 		}
-	}			
-				
+	}
+
 	.filter {
 		position: absolute;
 		top: 0;
@@ -45,7 +45,7 @@
 		background: rgba(107, 88, 205, 0.8);
 		opacity: 0;
 		transition: opacity .3s ease;
-		    
+
 		&:before {
 			content: ' ';
 			position: absolute;
@@ -54,12 +54,12 @@
 			transform: translate(-50%, -50%);
 			background: url("../images/sprite.png") no-repeat -228px -2px;
 			width: 57px;
-			height: 57px;	    	    
+			height: 57px;
 		}
 	}
-		
+
 	img {
-		position: absolute;	
+		position: absolute;
 		top: 50%;
 		left: 50%;
 		min-width: 100%;
@@ -76,13 +76,11 @@
 	color: #393939;
 	font-weight: 300;
 	padding-bottom: 20px;
-	text-align: center;	
+	text-align: center;
 	font-size: 25px;
 	border-bottom: 1px solid #cccccc;
-	
+
 	&:hover {
 		color: #6b58cd;
 	}
 }
-
-	

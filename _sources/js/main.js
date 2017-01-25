@@ -7,35 +7,12 @@ import Wow from './modules/wow.js';
 
 // По нажатию на гамбургер открывать меню
 document.addEventListener('DOMContentLoaded', () => {
-/*
-	//Плавающее меню
-	let floatMenu = {
-	  elem : document.getElementById('menu'),
-	  height : 200,
-	  first_class : 'menu_fixed_on_top',
-	  second_class : 'float_menu'
-	};
-
-	// Инициализация меню
-	FloatMenu.init(floatMenu);
-*/
-
 	document.querySelector('.burger').addEventListener('click', function () {
 		document.querySelector('.navigation').classList.toggle('not-active');
 		document.querySelector('.navigation').classList.toggle('active');
 	});
 });
 
-// Отправка формы обратной связи скрипту для отправления по почте
-/*
-let data = {
-  name : 'input[name="name"]',
-  email : 'input[name="email"]',
-  telephone : 'input[name="telephone"]'
-};
-
-new SendFunc('application', data, 'mail');
-*/
 $(document).ready(function () {
 	if( $.flexslider) {
 	  $('.flexslider').flexslider({
@@ -92,11 +69,11 @@ if (window.contact) {
 
 	DG.then(function () {
 		map = DG.map('map', {
-      	center: [51.13, 71.41],
+      	center: [51.098056,71.418868],
       	zoom: 13
   		});
 
-		DG.marker([51.135416, 71.410690]).addTo(map).bindPopup('Мы находимся здесь!');
+		DG.marker([51.098056,71.418868]).addTo(map).bindPopup('Мы находимся здесь!');
   });
 }
 
@@ -123,22 +100,14 @@ if (window.about) {
 }
 
 if (window.media || window.category) {
-	// let msnry = new Masonry( '.media-content .container', {
-	// 	itemSelector: '.media-content .container .wrap',
-	// 	columnWidth: document.querySelector('.media-Elem').offsetWidth,
-	// 	percentPosition: true
-	// });
 
 	let mediaGrid = new MediaGrid(document.querySelectorAll('.media-Elem'), document.querySelectorAll('.elem__tabs-filters'));
 
 	let filters = ['all', 'image', 'video'];
 
 	mediaGrid.tabs.forEach( (item, number, arr) => {
-
 		item.addEventListener('click', function () {
-
 			if (!this.classList.contains('active')) {
-
 				mediaGrid.update(filters[number]);
 				mediaGrid.updateActiveTab(this);
 			}

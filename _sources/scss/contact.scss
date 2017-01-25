@@ -16,7 +16,7 @@
 	padding-right: 0;
 	height: 450px;
 
-	@media screen and (min-width: 480px) {
+	@media screen and (min-width: 200px) {
 		@include span (12);
 	}
 	@media screen and (min-width: 600px) {
@@ -32,7 +32,7 @@
 	text-align: center;
 	display: table;
 
-	@media screen and (min-width: 480px) {
+	@media screen and (min-width: 200px) {
 		@include span (12);
 	}
 	@media screen and (min-width: 600px) {
@@ -131,7 +131,7 @@ form {
 	}
 
 	.textarea-wrap {
-		@media screen and (min-width: 480px) {
+		@media screen and (min-width: 200px) {
 			@include span(12);
 		}
 		@media screen and (min-width: 970px) {

@@ -1,5 +1,5 @@
 .parallax-window {
-	height: 450px;	
+	height: 450px;
 	position: relative;
 }
 
@@ -21,7 +21,7 @@
 	font-style: italic;
 	padding-left: span(1);
 
-	@media screen and ( min-width: 480px) {
+	@media screen and ( min-width: 200px) {
 		font-size: 45px;
 	}
 

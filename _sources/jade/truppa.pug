@@ -1,0 +1,58 @@
+// lang vars
+case JSON.parse(process.env.NODE_ENV).lang
+	when 'ru'
+		- var admin = "Администрация"
+		- var admin_link = "http://astanaballet.com/truppa/administration/"
+		- var artists_team = "Художественное руководство"
+		- var artists_team_link = "http://astanaballet.com/truppa/artists_team/"
+		- var dancers = "Артисты"
+		- var dancers_link = "http://astanaballet.com/truppa/dancers/"
+
+	when 'eng'
+		- var admin = "Administration"
+		- var admin_link = "http://eng.astanaballet.com/truppa/administration/"
+		- var artists_team = "Artistic Team"
+		- var artists_team_link = "http://eng.astanaballet.com/truppa/artists_team/"
+		- var dancers = "Dancers"
+		- var dancers_link = "http://eng.astanaballet.com/truppa/dancers/"
+
+	when 'kz'
+		- var admin = "Әкімшілік"
+		- var admin_link = "http://kz.astanaballet.com/truppa/administration/"
+		- var artists_team = "Көркемдік жетекшілік"
+		- var artists_team_link = "http://kz.astanaballet.com/truppa/artists_team/"
+		- var dancers = "Әртістер"
+		- var dancers_link = "http://kz.astanaballet.com/truppa/dancers/"
+
+| <?php
+| /*
+|  Template Name: Truppa page
+| */?>
+
+doctype html
+html
+	| <?php get_header(); ?>
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/afish.css")
+	body
+		include sections/navigation.pug
+		//- .parallax-window(data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/truppa_head.jpg" data-speed="0.3")
+		//- 	.filter_violet
+		//- 	h3!="<?php the_title()?>"
+		.peoples.container-float
+			a(href=admin_link data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/admin.jpg" data-speed="0.3" class="parallax-window")
+				div(class="filter_violet")
+				div(class="container")
+					h3(class="header__content") #{admin}
+			a(href=artists_team_link data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/team.jpg" data-speed="0.3" class="parallax-window")
+				div(class="filter_violet")
+				div(class="container")
+					h3(class="header__content") #{artists_team}
+			a(href=dancers_link data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/artists.jpg" data-speed="0.3" class="parallax-window")
+				div(class="filter_violet")
+				div(class="container")
+					h3(class="header__content") #{dancers}
+
+		include sections/footer.pug
+		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
+		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
+		script(src!="<?php echo get_template_directory_uri();?>/js/main.js")

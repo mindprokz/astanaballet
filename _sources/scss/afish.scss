@@ -1,27 +1,27 @@
 @import 'sections/style';
 .parallax-window {
-	width: 100%;	
-	position: relative;	
+	width: 100%;
+	position: relative;
 	text-align: center;
 	display: table;
 	cursor: pointer;
 	.container {
 		display: table-cell;
 		vertical-align: middle;
-		position: relative;	
+		position: relative;
 	}
-	
-	@media screen and (min-width: 480px) {
-	height: 400px;
+
+	@media screen and (min-width: 200px) {
+		height: 400px;
 	}
-	
+
 	@media screen and (min-width: 750px) {
-	height: 605px;
-	}	
-}	
+		height: 605px;
+	}
+}
 
 .filter_violet {
-	position: absolute;	
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -32,21 +32,19 @@
 
 .date__content {
 	color: #ffffff;
-		
+
 }
 
 .header__content {
 	font-weight: 700;
 	font-size: 45px;
 	color: #ffffff;
-	
-	@media screen and (min-width: 480px) {
-		font-size: 25px;	
-	}
-	
-	@media screen and (min-width: 750px) {
-		font-size: 45px;	
-	}	
-}
 
-	
+	@media screen and (min-width: 200px) {
+		font-size: 25px;
+	}
+
+	@media screen and (min-width: 750px) {
+		font-size: 45px;
+	}
+}

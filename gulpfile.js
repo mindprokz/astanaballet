@@ -73,7 +73,7 @@ class CreatePath {
 let jsPath = new CreatePath('/_sources/js/main.js', `/_compile/${env}/js/`);
 let libsPath = new CreatePath('/_extra/libs');
 let scssPath = new CreatePath('/_sources/scss/*.scss',`/_compile/${env}/css/`);
-let jadePath = new CreatePath('/_sources/jade/*.jade');
+let jadePath = new CreatePath('/_sources/jade/*.pug');
 let imagesPath = new CreatePath('/_sources/image/imageFromProd/**/*', `/_compile/${env}/images/`);
 
 // опции для синтаксиса js
@@ -106,8 +106,7 @@ gulp.task('jade', () => {
   .pipe(rename(function (path) {
     path.extname = ".php"
   }))
-  .pipe(gulp.dest(jadePath.to))
-  .pipe(gulp.dest('/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme'));
+  .pipe(gulp.dest(jadePath.to));
 
   bs.reload();
 });
@@ -129,7 +128,7 @@ gulp.task('scss', () => {
     bs.reload();
   } else {
     _files.pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer('last 5 version'))
+    .pipe(autoprefixer('last 10 version'))
     .pipe(minifyCss())
     .pipe(rename(function (path) {
       path.extname = ".css"

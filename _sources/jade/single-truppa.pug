@@ -1,4 +1,4 @@
-// lang variables 
+// lang variables
 case JSON.parse(process.env.NODE_ENV).lang
 	when 'ru'
 		- var lang_spec_head = 'Спектакли';
@@ -12,11 +12,10 @@ case JSON.parse(process.env.NODE_ENV).lang
 
 doctype html
 html
-	|	
 	| <?php get_template_part('header'); ?>
 	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/single-truppa.css")
 	body
-		include sections/navigation.jade
+		include sections/navigation.pug
 		.parallax-window(data-parallax="scroll" data-image-src!="<?php echo(types_render_field( 'horizont_truppa', array('raw' => true) ) ); ?>" data-speed="0.3")
 			.container
 				h3!="<?php the_title(); ?>"
@@ -29,43 +28,43 @@ html
 						.wrap
 							img(src!="<?php echo(types_render_field( 'thumbnail_video__truppa', array('raw' => true) ) ); ?>")
 							div(id="existing-iframe-example" frameborder="0" style=" position: absolute;")
-					| <?php endif;?>		
-					
+					| <?php endif;?>
+
 					.content__text!="<?php echo(types_render_field( 'content_truppa_new', array('raw' => false) ) ); ?>"
 					| <?php if ( types_render_field( 'vertical_thumb__truppa', array('raw' => true) )  &&  types_render_field( 'zoom_photo__truppa', array('raw' => true) ) ):?>
 					| <?php $arrMain;
-					| $arrvert = explode (' ', types_render_field( 'vertical_thumb__truppa', array('raw' => true) ) ); 
-					| $arrvert2 = explode (' ', types_render_field( 'zoom_photo__truppa', array('raw' => true) ) ); 
+					| $arrvert = explode (' ', types_render_field( 'vertical_thumb__truppa', array('raw' => true) ) );
+					| $arrvert2 = explode (' ', types_render_field( 'zoom_photo__truppa', array('raw' => true) ) );
 					| foreach( $arrvert as $key => $value2) {
 					|   $arrMain[$key] = array( $arrvert[$key], $arrvert2[$key] );
 					| }?>
-					
+
 					| <?php foreach( $arrMain as $elem): ?>
 					.images__media
 						a(href!="<?php echo( $elem[1] ); ?>" class="fancybox").wrap
 							img(src!="<?php echo( $elem[0] ); ?>")
 							.filter
 					| <?php endforeach;?>
-					
-					| <?php endif;?>		
-							
-					| <?php $arr = explode (' ', types_render_field( 'photo_truppa', array('raw' => true) ) ); 
+
+					| <?php endif;?>
+
+					| <?php $arr = explode (' ', types_render_field( 'photo_truppa', array('raw' => true) ) );
 					| foreach( $arr as $value): ?>
 					.images__media
 						a(href!="<?php echo( $value ); ?>" class="fancybox").wrap
 							img(src!="<?php echo( $value ); ?>")
 							.filter
 					| <?php endforeach; ?>
-					
+
 				.text
 					| <?php if ( types_render_field( 'spectacles__truppa', array('raw' => true) ) ):?>
 					.spectacles__text
 						h3 #{lang_spec_head}
 						ul
-							| <?php echo( types_render_field( 'spectacles__truppa', array('output' => 'raw') ) ); ?>	
-							| <?php endif;?>	
-					
-		include sections/footer.jade
+							| <?php echo( types_render_field( 'spectacles__truppa', array('output' => 'raw') ) ); ?>
+							| <?php endif;?>
+
+		include sections/footer.pug
 		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
 		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
 		script(src!="<?php echo get_template_directory_uri();?>/libs/fancybox/source/jquery.fancybox.pack.js")
@@ -73,4 +72,4 @@ html
 		script(src!="<?php echo get_template_directory_uri();?>/js/main.js")
 		| <?php if ( types_render_field( 'add_video', array('raw' => true) ) ):?>
 		script(src!="<?php echo get_template_directory_uri();?>/js/youtube.js")
-		| <?php endif;?>	
+		| <?php endif;?>

@@ -1,70 +1,65 @@
 // lang vars
 case JSON.parse(process.env.NODE_ENV).lang
 	when 'ru'
-		- var lang_indexPage_header1 = 'Ближайшие выступления';
+		- var lang_indexPage_header1 = 'Последние новости';
 		- var lang_indexPage_header2 = 'Последние события';
 		- var lang_indexPage_header3 = 'Хронология';
 		- var metrix_count = "https://mc.yandex.ru/watch/24668039";
 		- var metrix_url = "metrix.js";
 
 	when 'eng'
-		- var lang_indexPage_header1 = 'Upcoming Performances';
+		- var lang_indexPage_header1 = 'Latest news';
 		- var lang_indexPage_header2 = 'Recent Developments';
 		- var lang_indexPage_header3 = 'Chronology';
 		- var metrix_count = "https://mc.yandex.ru/watch/39205060";
 		- var metrix_url = "metrixeng.js";
 
 	when 'kz'
-		- var lang_indexPage_header1 = 'Жуырдағы көрсетілімдер';
+		- var lang_indexPage_header1 = 'Соңғы жаңалықтар';
 		- var lang_indexPage_header2 = 'Соңғы оқиғалар';
 		- var lang_indexPage_header3 = 'Хронология';
 		- var metrix_count = "https://mc.yandex.ru/watch/39204970";
 		- var metrix_url = "metrixkz.js";
 
-	default 
-		- var lang = null;	
+	default
+		- var lang = null;
 
 
 // markup
 doctype html
 html(lang="ru")
-	|  
 	| <?php get_header(); ?>
-	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/main.css") 
+	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/main.css")
 	body
-		include sections/navigation.jade
+		include sections/navigation.pug
 		#first-slider.flex-container.container-float
 			.flexslider
 				.slides
-					| 
 					| <?php getSlider(); ?>
 		section#events
 			header.header_style.header_events
 				.container
 					a(href="/afish/").link_events
-					.text_events #{lang_indexPage_header1}
-			| 
+					.text_events #{lang_indexPage_header2}
 			| <?php getAfishOnMain(); ?>
-									
+
 		section#last_events
 			header.header_style.header__last_events
 				.container
 					a(href="/news/").link_events
 					.arrows___header__last_events
-					.text_events #{lang_indexPage_header2}	
+					.text_events #{lang_indexPage_header1}
 			.third_slider.container-float
 				.third_slider
 					.slides
-						| 
 						| <?php getLastEvents(); ?>
 		section#history
 			header.header_style.header_events
 				.text_events #{lang_indexPage_header3}
 			iframe(src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1vNNMPkhtRF3FBSZR814CYXGtOR8ZKlPN0GnqqN_S3f8&font=Default&lang=ru&start_at_end=true&initial_zoom=2&height=650' width='100%' height='650' frameborder='0')
-		include sections/footer.jade
-		include sections/bilet.jade
-		include sections/main/script.jade  
-		script(src!="<?php echo get_template_directory_uri();?>/js/#{metrix_url}")
+		include sections/footer.pug
+		include sections/main/script.pug
+		script(src!=`<?php echo get_template_directory_uri();?>/js/${metrix_url}`)
 		noscript
 			div
-				img(src="#{metrix_count}" style="position:absolute; left:-9999px;" alt="")
+				img(src=metrix_count style="position:absolute; left:-9999px;" alt="")

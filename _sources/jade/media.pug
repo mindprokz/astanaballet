@@ -18,14 +18,13 @@ case JSON.parse(process.env.NODE_ENV).lang
 		- var lang_category_filters_video = 'Бейне';
 		- var lang_category_filters_albom = 'Альбомды таңдау';
 
-	default 
-		- var lang = null;	
+	default
+		- var lang = null;
 
 
 // markup
 doctype html
 html
-	|  
 	| <?php get_header(); ?>
 	| <?php
 	| /*
@@ -33,7 +32,7 @@ html
 	| */?>
 	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/media.css")
 	body
-		include sections/navigation.jade
+		include sections/navigation.pug
 		// content
 		.filters.container-float
 			.container
@@ -46,7 +45,6 @@ html
 						li.elem__button-filters.the-first-item #{lang_category_filters_albom}
 						li.elem__button-filters: a(href!="/media/") #{lang_category_filters_all}
 						|<?php
-						| 						
 						| $args = array(
 						|	  'show_option_all'    => '',
 						|		'show_option_none'   => 'Нет альбомов',
@@ -76,7 +74,6 @@ html
 						|		'hide_title_if_empty' => false,
 						|		'separator'          => '<br />',
 						|	);
-						| 
 						|wp_list_categories( $args ); ?>
 		.media-content.container-float
 			.container
@@ -87,10 +84,10 @@ html
 				|			'category_name' => 'alboms' //Категория постов
 				|		);
 				|$lastBlog = new WP_Query($args); //Запрос ко всем постам подходящим под массив #args
-				|		if( $lastBlog->have_posts() ):		
+				|		if( $lastBlog->have_posts() ):
 				|			while($lastBlog->have_posts() ): $lastBlog->the_post(); ?>
 				| <?php
-				| $size = types_render_field( "size__media", array('output' => 'raw') ); 
+				| $size = types_render_field( "size__media", array('output' => 'raw') );
 				| $type = types_render_field( "type__media", array('output' => 'raw') );
 				| $video = $type == 'video' ? 'fancybox.iframe' : '';
 				| $link = $type == 'video' ? types_render_field( 'link_video__media', array('output' => 'raw') ) : types_render_field( 'photo__media', array('output' => 'raw') )
@@ -103,8 +100,8 @@ html
 				|		endif;
 				|		wp_reset_postdata();
 				| ?>
-				
-		include sections/footer.jade
+
+		include sections/footer.pug
 		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
 		script(src!="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js")
 		script(src!="<?php echo get_template_directory_uri();?>/libs/fancybox/source/jquery.fancybox.pack.js")

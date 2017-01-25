@@ -109,7 +109,7 @@ footer .footer_bottom {
 
 .footer_bottom {
 	.ast_logo {
-		@media screen and (min-width: 480px) {
+		@media screen and (min-width: 200px) {
 			@include span(3);
 		}
 		@media screen and (min-width: 750px) {
@@ -129,7 +129,7 @@ footer .footer_bottom {
 			line-height: 25px;
 			padding-top: 5px;
 
-			@media screen and (min-width: 480px) {
+			@media screen and (min-width: 200px) {
 				display: none;
 			}
 
@@ -157,7 +157,7 @@ footer .footer_bottom {
 	.social_logos {
 		margin-top: 20px;
 
-		@media screen and (min-width: 480px) {
+		@media screen and (min-width: 200px) {
 			@include span(5);
 		}
 

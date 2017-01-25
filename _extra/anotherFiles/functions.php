@@ -45,7 +45,7 @@
 									if (types_render_field( "ref__slider", array('raw' => true) ) ):
 										$ref = types_render_field( "ref__slider", array('raw' => true) )?>
 										<div class="wrap">
-											<a class="button" href="<?php echo $ref?>">Толығырақ</a>
+											<a class="button" href="<?php echo $ref?>">Подробнее</a>
 										</div>
 							<?php endif;?>
 						</div>
@@ -84,7 +84,6 @@
 		endif;
 		wp_reset_postdata();
 	}
-
 
 	// Получение записей афиш для главной страницы
 	function getAfishOnMain() {
@@ -129,7 +128,7 @@
 	function getRepertory() {
 		$args = array(
 			'post_type' => 'repertory_ast', //Тип поста
-			'posts_per_page' => 10,//Постов на одной странице
+			'posts_per_page' => 20,//Постов на одной странице
 			'category_name' => 'repertory' //Категория постов
 		);
 		$lastBlog = new WP_Query($args); //Запрос ко всем постам подходящим под массив #args

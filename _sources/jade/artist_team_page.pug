@@ -1,0 +1,51 @@
+| <?php
+| /*
+|  Template Name: Artist team truppa page
+| */?>
+
+| <?php
+| $args = array(
+|   'post_type' => 'truppa_ast', //Тип поста
+|   'posts_per_page' => -1,//Постов на одной странице
+|   'category_name' => 'artistic_team' //Категория постов
+| );
+|$lastBlog = new WP_Query($args);
+| ?>
+
+doctype html
+html
+  | <?php get_header(); ?>
+  link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/truppa.css")
+  body
+    include sections/navigation.pug
+    .parallax-window(data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/team.jpg" data-speed="0.3")
+      .filter_violet
+      h3!="<?php the_title()?>"
+    .peoples.container-float
+      .container
+        | <?php
+        | if( $lastBlog->have_posts() ):
+        |   while($lastBlog->have_posts() ): $lastBlog->the_post(); ?>
+        |     <?php $name_truppa = types_render_field( "name__truppa", array('raw' => true) ); ?>
+        |     <?php $status_truppa = types_render_field( "status_truppa", array('raw' => true) ); ?>
+        |     <?php $photo_truppa = types_render_field( "phototruppa_truppa", array('raw' => true) ); ?>
+        <div class="people">
+          <a href="<?php echo get_permalink(); ?>" class="people__wrap">
+            <img src="<?php echo $photo_truppa?>">
+            <div class="filter"></div>
+          </a>
+          <a href="<?php echo get_permalink(); ?>">
+            <h3 class="people__header-name"><?php echo $name_truppa?></h3>
+          </a>
+          <h4 class="people__header-status"><?php echo $status_truppa?></h4>
+        </div>
+        | <?php
+        |	  endwhile;
+        |	endif;
+        |	wp_reset_postdata();
+        |?>
+
+    include sections/footer.pug
+    script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
+    script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
+    script(src!="<?php echo get_template_directory_uri();?>/js/main.js")

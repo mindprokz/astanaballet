@@ -1,6 +1,5 @@
 doctype html
 html
-	|  
 	| <?php get_header(); ?>
 	| <?php
 	| /*
@@ -8,10 +7,9 @@ html
 	| */?>
 	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/afish.css")
 	body
-		include sections/navigation.jade
-		| 
+		include sections/navigation.pug
 		| <?php getAfishOnPage();?>
-		include sections/footer.jade
+		include sections/footer.pug
 		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
 		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
 		script(src!="<?php echo get_template_directory_uri();?>/js/main.js")

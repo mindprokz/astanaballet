@@ -13,7 +13,7 @@ case JSON.parse(process.env.NODE_ENV).lang
 		- var lang_footer_adress_header = 'About Astana Ballet';
 		- var lang_footer_adress_about = '"Astana Ballet" is the theatre skillfully combining in repertoire the features of classical ballet and contemporary dance of different people of the world.';
 		- var mind_logo = "mind_logo_eng"
-		
+
 	when 'kz'
 		- var lang_footer_last_posts = 'Блогтағы жуырдағы посттар';
 		- var lang_footer_last_news = 'Соңғы жаңалықтар';
@@ -21,8 +21,8 @@ case JSON.parse(process.env.NODE_ENV).lang
 		- var lang_footer_adress_about = '"Астана Балет" – өз репертуарында классикалық балет нышандары мен әлемнің түрлі халықтарының заманауи билерін үйлестіріп отыратын театр.';
 		- var mind_logo = "mind_logo_ru"
 
-	default 
-		- var lang = null;	
+	default
+		- var lang = null;
 
 
 // markup
@@ -31,7 +31,7 @@ footer
 		.posts_in_blog.block
 			h3 #{lang_footer_last_posts}
 			ul
-				| <?php 
+				| <?php
 				|   $args = array(
 				|     'post_type' => 'blog_ast', //Тип поста
 				|     'posts_per_page' => 3,//Постов на одной странице
@@ -47,11 +47,11 @@ footer
 				|    <?php endwhile; ?>
 				|  <?php endif;?>
 				|  <?php wp_reset_postdata();	 ?>
-						
+
 		.posts_in_blog.block
 			h3 #{lang_footer_last_news}
 			ul
-				| <?php 
+				| <?php
 				|   $args = array(
 				|     'post_type' => 'news_ast', //Тип поста
 				|     'posts_per_page' => 3,//Постов на одной странице
@@ -67,12 +67,12 @@ footer
 				|    <?php endwhile; ?>
 				|  <?php endif;?>
 				|  <?php wp_reset_postdata();	 ?>
-				
+
 		.about_astana_ballet.block(itemscope itemtype="https://schema.org/Organization")
 			h3(itemprop="name") #{lang_footer_adress_header}
 			p #{lang_footer_adress_about}
 			.contact
-				.number(itemprop="telephone")="+7 (7172) 709-644, +7 (7172) 709-643"
+				.number(itemprop="telephone")="+7 7172 62-12-00"
 				a(href="#" itemprop="email").mail="info@astanaballet.kz"
 				div(itemprop="address" style="visibility: hidden;")="Республика Казахстан, город Астана, ул. Кунаева, 1"
 	section.footer_bottom
@@ -87,4 +87,3 @@ footer
 				a(href="https://vk.com/astanaballet" target="_blank").vk
 			a(href="http://mindpro-group.com" target="_blank")
 				div( class="#{mind_logo}")
-					

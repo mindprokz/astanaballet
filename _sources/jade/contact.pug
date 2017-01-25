@@ -1,28 +1,27 @@
 // lang vars
 case JSON.parse(process.env.NODE_ENV).lang
 	when 'ru'
-		- var lang_category_address = 'Республика Казахстан, город Астана, ул. Кунаева, 1';
+		- var lang_category_address = 'пр. Улы Дала, 9';
 		- var lang_contact_header = 'Напишите нам';
 		- var lang_contact_button = 'Отправить';
 
 	when 'eng'
-		- var lang_category_address = 'Kazakhstan, Astana, 1 Kunaev street';
+		- var lang_category_address = '9, Uly Dala ave.';
 		- var lang_contact_header = 'Write to us';
 		- var lang_contact_button = 'Send';
 
 	when 'kz'
-		- var lang_category_address = 'Республика Казахстан, город Астана, ул. Кунаева, 1';
+		- var lang_category_address = 'пр. Улы Дала, 9';
 		- var lang_contact_header = 'Напишите нам';
 		- var lang_contact_button = 'Отправить';
 
-	default 
-		- var lang = null;	
+	default
+		- var lang = null;
 
 
 // markup
 doctype html
 html
-	|  
 	| <?php get_header(); ?>
 	| <?php
 	| /*
@@ -30,8 +29,8 @@ html
 	| */?>
 	link(rel="stylesheet" href!="<?php echo get_template_directory_uri();?>/css/contact.css")
 	body
-		include sections/navigation.jade
-		
+		include sections/navigation.pug
+
 		// Блок с параллаксом
 		.parallax-window(data-parallax="scroll" data-image-src!="<?php echo get_template_directory_uri();?>/images/contact_head.jpg" data-speed="0.3")
 			.filter_violet
@@ -43,7 +42,7 @@ html
 					h3.header__wrap-info(itemprop="name")="Astana Ballet"
 					.line__wrap-info
 					p.text__wrap-info(itemprop="address") #{lang_category_address}
-					h4.number__wrap-info(itemprop="telephone")="+7 (7172) 709-644 +7 (7172) 709-643"
+					h4.number__wrap-info(itemprop="telephone")!="+7 7172 62-12-00 - Приемная <br> +7 7172 62-12-12 - Касса <br> +7 7172 62-12-16 - Пресс-служба"
 					h5.mail__wrap-info(itemprop="email")="info@astanaballet.kz"
 		.feedback
 			h3.header__feedback #{lang_contact_header}
@@ -54,7 +53,7 @@ html
 					input(type="text" placeholder="E-mail")
 				textarea(placeholder="Сообщение").textarea-wrap
 				button="Send"
-		include sections/footer.jade
+		include sections/footer.pug
 		script(src!="<?php echo get_template_directory_uri();?>/libs/jquery/dist/jquery.min.js")
 		script(src!="<?php echo get_template_directory_uri();?>/libs/parallaxScroll/index.js")
 		script(src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full")

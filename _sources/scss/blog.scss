@@ -31,7 +31,7 @@
 	background: transparent;
 	margin-bottom: 30px;
 
-	@media screen and (min-width: 480px) {
+	@media screen and (min-width: 200px) {
 		@include span(12 border-box);
 	}
 	@media screen and (min-width: 750px) {
@@ -137,5 +137,5 @@
 	}
 }
 strong, b {
-	fonr-weight: 700;
+	font-weight: 700;
 }

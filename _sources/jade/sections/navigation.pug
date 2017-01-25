@@ -3,7 +3,7 @@
 case lang_ch
 	when 'ru'
 		- var lang_menu_about = 'О театре';
-		- var lang_menu_truppa = 'Труппа';
+		- var lang_menu_truppa = 'Руководство и артисты';
 		- var lang_menu_afish = 'Афиша';
 		- var lang_menu_repertory = 'Репертуар';
 		- var lang_menu_news = 'Новости';
@@ -19,7 +19,7 @@ case lang_ch
 
 	when 'eng'
 		- var lang_menu_about = 'About the Theatre';
-		- var lang_menu_truppa = 'Troupe';
+		- var lang_menu_truppa = 'Administration and Аrtists';
 		- var lang_menu_afish = 'Poster';
 		- var lang_menu_repertory = 'Repertoire';
 		- var lang_menu_news = 'News';
@@ -35,7 +35,7 @@ case lang_ch
 
 	when 'kz'
 		- var lang_menu_about = 'Театр жайлы';
-		- var lang_menu_truppa = 'Труппа';
+		- var lang_menu_truppa = 'Әкімшілік және әртістер';
 		- var lang_menu_afish = 'Афиша';
 		- var lang_menu_repertory = 'Репертуар';
 		- var lang_menu_news = 'Жаңалықтар';
@@ -49,8 +49,8 @@ case lang_ch
 		- var lang_menu_another_lang2 = 'RU';
 		- var lang_menu_active_lang_link2 = "http://astanaballet.com"
 
-	default 
-		- var lang = null;	
+	default
+		- var lang = null;
 
 
 // markup
@@ -66,9 +66,9 @@ header.container-float#menu
 		// .haveSubMenu
 		a.navElement(href="/about") #{lang_menu_about}
 		a.navElement(href="/truppa") #{lang_menu_truppa}
-		a.navElement(href="/afish") #{lang_menu_afish}
+		//a.navElement(href="/afish") #{lang_menu_afish}
 		a.navElement(href="/repertory") #{lang_menu_repertory}
 		a.navElement(href="/news") #{lang_menu_news}
-		a.navElement(href="/media") #{lang_menu_media}
+		//a.navElement(href="/media") #{lang_menu_media}
 		a.navElement(href="/blog") #{lang_menu_blog}
 		a.navElement(href="/contact") #{lang_menu_contact}

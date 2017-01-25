@@ -85,7 +85,7 @@
 }
 
 .video-content {
-	@media screen and (min-width: 480px) {
+	@media screen and (min-width: 200px) {
 		@include span(12);
 		margin-left: 0;
 	}
@@ -121,7 +121,7 @@
 }
 
 .photo-content {
-	@media screen and (min-width: 480px) {
+	@media screen and (min-width: 200px) {
 		@include span(12);
 		margin-left: 0;
 		padding-left: 0;
@@ -243,7 +243,7 @@
 }
 
 .photo-section {
-	@media screen and (min-width: 480px) {
+	@media screen and (min-width: 200px) {
 		@include span(12 split);
 		padding-left: 0;
 		padding-right: 0;
@@ -328,7 +328,7 @@
 .people {
 	margin-top: 50px;
 
-	@media screen and (min-width: 320px) {
+	@media screen and (min-width: 200px) {
 		@include span(6);
 	}
 
@@ -371,7 +371,7 @@
 }
 
 .smi-image {
-	@media screen and (min-width: 480px) {
+	@media screen and (min-width: 200px) {
 		@include span(12);
 	}
 
@@ -391,7 +391,7 @@
 	margin-top: 15px;
 	line-height: 28px;
 
-	@media screen and (min-width: 480px) {
+	@media screen and (min-width: 200px) {
 		@include span(12);
 	}
 	@media screen and (min-width: 750px) {

@@ -13,7 +13,7 @@
 .flexslider a:active,
 .flex-container a:focus,
 .flexslider a:focus  { outline: none; }
- 
+
 .slides,
 .flex-control-nav,
 .flex-direction-nav {
@@ -21,23 +21,23 @@
     padding: 0;
     list-style: none;
 }
- 
+
 .flexslider a img { outline: none; border: none; }
- 
+
 .flexslider {
     margin: 0;
     padding: 0;
 }
 
 #first-slider .slides > li {
-	@media screen and (min-width: 480px) {
+	@media screen and (min-width: 200px) {
 		height: 300px;
 	}
-	
+
 	@media screen and (min-width: 750px) {
 		height: 400px;
 	}
-		
+
 	@media screen and (min-width: 970px) {
 		height: 600px;
 	}
@@ -50,21 +50,21 @@
     -webkit-backface-visibility: hidden;
     position: relative;
 }
- 
+
 .flexslider .slides img {
     min-width: 100%;
     max-width: 130%;
     min-height: 100%;
-    position: absolute;	
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: block;
- 
+
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
-}	
+}
 
 //clear
 .slides:after {
@@ -75,14 +75,14 @@
     line-height: 0;
     height: 0;
 }
- 
+
 html[xmlns] .slides { display: block; }
 * html .slides { height: 1%; }
 
 //Slider styles
 .flexslider{
     position: relative;
-    zoom: 1; 
+    zoom: 1;
 }
 
 .flex-container {
@@ -92,77 +92,77 @@ html[xmlns] .slides { display: block; }
     .slides {
 			z-index: 1;
 		}
-		
+
 		.flex-direction-nav {
-			position: absolute;	
+			position: absolute;
 			top: 50%;
 			left: 0;
 			width: 100%;
-			z-index: 10;	
+			z-index: 10;
 		}
-		
+
 		.flex-nav-prev, .flex-nav-next{
-			width: 70px;	
-			height: 70px;	
+			width: 70px;
+			height: 70px;
 			background: #fff;
 			transform: rotate(45deg);
 			position: absolute;
 			opacity: 0.5;
 			transition: opacity .3s ease;
-			
-						
-			@media screen and (min-width: 480px) {
+
+
+			@media screen and (min-width: 200px) {
 				display: none;
 			}
-			
+
 			@media screen and (min-width: 970px) {
 				display: block;
 			}
-			
+
 			&:hover {
 				opacity: 1;
 			}
 			&:after {
 				content: ' ';
-				width: 7px;	
-				height: 9px;	
+				width: 7px;
+				height: 9px;
 				transform: rotate(-45deg)
-			}	
+			}
 		}
-		
+
 		.flex-nav-prev:after{
 			background: url('../images/sprite.png') no-repeat 0px -5px;
-			float: right;	
-			margin-right: 17px;	
-			margin-top: 17px;	
+			float: right;
+			margin-right: 17px;
+			margin-top: 17px;
 		}
-		
+
 		.flex-nav-next:after{
 			background: url('../images/sprite.png') no-repeat -16px -5px;
-			float: left;	
-			margin-left: 20px;	
-			margin-top: 43px;	
+			float: left;
+			margin-left: 20px;
+			margin-top: 43px;
 		}
-		
+
 		.flex-nav-prev {
-			margin-left: -35px;	
+			margin-left: -35px;
 		}
-		
+
 		.flex-nav-next{
-			right: 0;	
-			margin-right: -35px;	
+			right: 0;
+			margin-right: -35px;
 		}
-		
+
 		.flex-direction-nav a {
 		    display: block;
 		    width: 100%;
 		    height: 100%;
-		    position: absolute;	
+		    position: absolute;
 		    top: 0;
 		    cursor: pointer;
 		    text-indent: -9999px;
 		}
-		
+
 		.flexslider .flex-control-nav {
 		    position: absolute;
 		    width: 100%;
@@ -170,12 +170,12 @@ html[xmlns] .slides { display: block; }
 		    text-align: center;
 		    z-index: 10;
 		}
-		 
+
 		.flex-control-nav li {
 		    display: inline-block;
 		    zoom: 1;
 		}
-		 
+
 		.flex-control-paging li a {
 		    display: block;
 		    cursor: pointer;
@@ -185,35 +185,35 @@ html[xmlns] .slides { display: block; }
 		    margin: 0px 5px;
 		    background: url('../images/sprite.png') no-repeat -148px -21px;
 		}
-		 
+
 		.flex-control-paging li a.flex-active {
 			background: url('../images/sprite.png') no-repeat -148px -6px;
 		}
-		
+
 		.slides .text {
-			position: absolute;	
+			position: absolute;
 			top: 50%;
 			transform: translateY(-50%);
-			width: 100vw;	
+			width: 100vw;
 			color: #fff;
 		}
-		
+
 		.text .date {
 			font-size: 30px;
-			padding-bottom: 15px;	
-			
+			padding-bottom: 15px;
+
 		}
 		.text h3 {
 			font-weight: 700;
 			padding: 15px 0;
-			
-			@media screen and (min-width: 480px) {
+
+			@media screen and (min-width: 200px) {
 				font-size: 40px;
 			}
-			
+
 			@media screen and (min-width: 970px) {
-				font-size: 70px;				
-			}	
+				font-size: 70px;
+			}
 		}
 		.text h4 {
 			font-size: 30px;
@@ -221,12 +221,12 @@ html[xmlns] .slides { display: block; }
 			font-weight: 300;
 			letter-spacing: 25px;
 			text-transform: uppercase;
-			padding: 15px 0;	
+			padding: 15px 0;
 		}
 		.text .wrap {
-			margin-top: 30px;	
-			margin-left: 45px;	
-			
+			margin-top: 30px;
+			margin-left: 45px;
+
 		}
 		.text a {
 			color: #fff;
@@ -247,12 +247,12 @@ html[xmlns] .slides { display: block; }
 			text-align: center;
 		}
 		.text .center .wrap {
-			margin-left: 0;	
+			margin-left: 0;
 		}
 		.text .right {
 			text-align: right;
 		}
 		.text .right .wrap {
-			margin-right: 45px;	
+			margin-right: 45px;
 		}
 }
