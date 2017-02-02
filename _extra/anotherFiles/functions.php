@@ -114,7 +114,7 @@
 	            <h3><?php echo $name?></h3>
 	            <h4><span class="bold">Дата: </span><span><?php echo $date_afish2?></span></h4>
 	            <p><?php echo $content ?></p>
-	            <a href="<?php echo $ref?>" class="link___wrap__textbox_event">Толығырақ</a>
+	            <a href="<?php echo $ref?>" class="link___wrap__textbox_event">Подробнее</a>
 	          </div>
 	        </div>
 	      </div>
