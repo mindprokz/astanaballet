@@ -123,7 +123,6 @@ gulp.task('scss', () => {
       path.extname = ".css"
     }))
     .pipe(gulp.dest(scssPath.to))
-    .pipe(gulp.dest('/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme/css'));
 
     bs.reload();
   } else {
@@ -147,7 +146,6 @@ gulp.task('images', () => {
     use: [pngquant()]
   }))
   .pipe(gulp.dest(imagesPath.to))
-  .pipe(gulp.dest('/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme/images'));
 });
 
 
@@ -165,7 +163,6 @@ gulp.task('js', () => {
       path.extname = ".js";
     }))
     .pipe(gulp.dest(jsPath.to))
-    .pipe(gulp.dest('/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme/js'));
 
     bs.reload();
   } else {
@@ -189,11 +186,6 @@ gulp.task('js', () => {
 // Таск для переноса библиотек в готовую сборку
 gulp.task('libsCompile', () => {
   ncp(libsPath.from, libsPath.to, function (err) {
-    if (err) {
-      return console.error(err);
-    }
-  });
-  ncp(libsPath.from, '/Users/merrick/Desktop/Server/wp-content/themes/AstanaBalletTheme/', function (err) {
     if (err) {
       return console.error(err);
     }

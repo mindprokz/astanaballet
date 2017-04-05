@@ -2,14 +2,15 @@ section.bilet {
   position: fixed;
   bottom: 10%;
   left: 3%;
-  width: 65px;
-  height: 65px;
-  padding: 30px;
+  width: 100px;
+  height: 100px;
+  padding-top: 34px;
   border-radius: 50%;
   font-size: 15px;
   background: #7b66e8;
   color: #fff;
   text-align: center;
+  box-sizing: border-box;
   transition: background 0.3s ease;
 
   &:hover {

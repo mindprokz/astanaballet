@@ -41,13 +41,19 @@
 										<h4><?php echo $afterheader?></h4>
 							<?php endif;?>
 
+                <div class="wrap">
 							<?php
 									if (types_render_field( "ref__slider", array('raw' => true) ) ):
 										$ref = types_render_field( "ref__slider", array('raw' => true) )?>
-										<div class="wrap">
-											<a class="button" href="<?php echo $ref?>">Подробнее</a>
-										</div>
+											<a class="button" href="<?php echo $ref?>">More</a>
 							<?php endif;?>
+
+							<?php
+									if (types_render_field( "idtiketon__slider", array('raw' => true) ) ):
+										$ref2 = types_render_field( "idtiketon__slider", array('raw' => true) )?>
+											<a class="button" href="javascript:ticketon.openEvent(<? echo $ref2?>);">Buy ticket</a>
+							<?php endif;?>
+              </div>
 						</div>
 					</div>
 				</li>
@@ -106,7 +112,6 @@
 	        <a href="<?php echo $ref?>">
 		        <div class="thumbnail_event <?php echo $iter % 2 == 0 ? 'even' : 'odd';?>">
 			        <img src="<?php echo $photo?>">
-			        <div class="filter_violet"></div>
 			      </div>
 			    </a>
 	        <div class="textbox_event">
@@ -114,7 +119,7 @@
 	            <h3><?php echo $name?></h3>
 	            <h4><span class="bold">Дата: </span><span><?php echo $date_afish2?></span></h4>
 	            <p><?php echo $content ?></p>
-	            <a href="<?php echo $ref?>" class="link___wrap__textbox_event">Подробнее</a>
+	            <a href="<?php echo $ref?>" class="link___wrap__textbox_event">More</a>
 	          </div>
 	        </div>
 	      </div>
@@ -194,7 +199,7 @@
 							<?php if (types_render_field( "thumbnail_news_or_blog", array('output' => 'raw') ) == 1 ): ?>
 								<div class="thumbnail___column__slide_elem">
 									<img src="<?php echo types_render_field( "thumbnail_for_thumb_news_or_blog", array('output' => 'raw') ); ?>"></img>
-									<div class="filter____thumbnail___column__slide_elem"></div>
+									<!-- <div class="filter____thumbnail___column__slide_elem"></div> -->
 								</div>
 
 								<div class="text___column__slide_elem">

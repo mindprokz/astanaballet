@@ -53,11 +53,12 @@ html(lang="ru")
 				.third_slider
 					.slides
 						| <?php getLastEvents(); ?>
-		section#history
-			header.header_style.header_events
-				.text_events #{lang_indexPage_header3}
-			iframe(src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1vNNMPkhtRF3FBSZR814CYXGtOR8ZKlPN0GnqqN_S3f8&font=Default&lang=ru&start_at_end=true&initial_zoom=2&height=650' width='100%' height='650' frameborder='0')
+		//- section#history
+		//- 	header.header_style.header_events
+		//- 		.text_events #{lang_indexPage_header3}
+		//- 	iframe(src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1vNNMPkhtRF3FBSZR814CYXGtOR8ZKlPN0GnqqN_S3f8&font=Default&lang=ru&start_at_end=true&initial_zoom=2&height=650' width='100%' height='650' frameborder='0')
 		include sections/footer.pug
+		//include sections/bilet.pug
 		include sections/main/script.pug
 		|<script>
 		|  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

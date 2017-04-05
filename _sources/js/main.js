@@ -18,6 +18,7 @@ $(document).ready(function () {
 	  $('.flexslider').flexslider({
 	    animation: 'slide',
 	    controlsContainer: '.flexslider',
+      smoothHeight: true
 	  });
 
 	  $('.third_slider').flexslider({

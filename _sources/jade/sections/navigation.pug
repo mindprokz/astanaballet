@@ -3,12 +3,13 @@
 case lang_ch
 	when 'ru'
 		- var lang_menu_about = 'О театре';
-		- var lang_menu_truppa = 'Руководство и артисты';
+		- var lang_menu_truppa = 'Руководство';
+		- var lang_menu_truppa_ = 'Артисты';
 		- var lang_menu_afish = 'Афиша';
 		- var lang_menu_repertory = 'Репертуар';
 		- var lang_menu_news = 'Новости';
 		- var lang_menu_media = 'Медиа';
-		- var lang_menu_blog = 'Блог';
+		- var lang_menu_blog = 'Пресса о нас';
 		- var lang_menu_contact = 'Контакты';
 
 		- var lang_menu_active_lang = 'RU';
@@ -19,7 +20,8 @@ case lang_ch
 
 	when 'eng'
 		- var lang_menu_about = 'About the Theatre';
-		- var lang_menu_truppa = 'Administration and Аrtists';
+		- var lang_menu_truppa = 'Administration';
+		- var lang_menu_truppa_ = 'Аrtists';
 		- var lang_menu_afish = 'Poster';
 		- var lang_menu_repertory = 'Repertoire';
 		- var lang_menu_news = 'News';
@@ -35,7 +37,8 @@ case lang_ch
 
 	when 'kz'
 		- var lang_menu_about = 'Театр жайлы';
-		- var lang_menu_truppa = 'Әкімшілік және әртістер';
+		- var lang_menu_truppa = 'Әкімшілік';
+		- var lang_menu_truppa_ = 'Әртістер';
 		- var lang_menu_afish = 'Афиша';
 		- var lang_menu_repertory = 'Репертуар';
 		- var lang_menu_news = 'Жаңалықтар';
@@ -66,8 +69,10 @@ header.container-float#menu
 		// .haveSubMenu
 		a.navElement(href="/about") #{lang_menu_about}
 		a.navElement(href="/truppa") #{lang_menu_truppa}
+		a.navElement(href="/truppa/dancers") #{lang_menu_truppa_}
 		//a.navElement(href="/afish") #{lang_menu_afish}
 		a.navElement(href="/repertory") #{lang_menu_repertory}
+		a.navElement(href="/expo") EXPO2017
 		a.navElement(href="/news") #{lang_menu_news}
 		//a.navElement(href="/media") #{lang_menu_media}
 		a.navElement(href="/blog") #{lang_menu_blog}
